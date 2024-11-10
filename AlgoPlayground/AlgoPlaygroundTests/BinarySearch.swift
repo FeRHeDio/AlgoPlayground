@@ -57,14 +57,12 @@ class BinarySearchEngine {
         var lidx = 0
         var ridx = array.count - 1
         var midx: Int = 0
-        var result = -1
         
         while lidx <= ridx {
             midx = (lidx + ridx) / 2
             
             if array[midx] == targetNumber {
-                result = midx
-                return result
+                return midx
             } else if array[midx] < targetNumber {
                 lidx = midx + 1
             } else {
@@ -72,7 +70,7 @@ class BinarySearchEngine {
             }
         }
         
-        return result
+        return -1
     }
 }
 
@@ -106,6 +104,27 @@ final class BinarySearch: XCTestCase {
         
         XCTAssertEqual(searchArray.firstIndex(of: targetNumber), result)
     }
+    
+    func test_searchForNumber54_returnsMinusOne() {
+        let sut = makeSUT()
+        let targetNumber = 54
+        let searchArray = [1, 3, 4, 8, 13, 18, 22, 44, 53]
+    
+        let result = sut.search(for: targetNumber, in: searchArray)
+        
+        XCTAssertEqual(-1, result)
+    }
+    
+    func test_searchForNumber0_returnsMinusOne() {
+        let sut = makeSUT()
+        let targetNumber = 0
+        let searchArray = [1, 3, 4, 8, 13, 18, 22, 44, 53]
+    
+        let result = sut.search(for: targetNumber, in: searchArray)
+        
+        XCTAssertEqual(-1, result)
+    }
+    
     
     // MARK: - Helpers
     
