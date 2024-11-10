@@ -77,9 +77,9 @@ class BinarySearchEngine {
 }
 
 final class BinarySearch: XCTestCase {
-    func test_searchForNumber1_returnsNumberOne() {
-        let sut = BinarySearchEngine()
-        let targetNumber = 18
+    func test_searchForNumber1_returnsIDX0() {
+        let sut = makeSUT()
+        let targetNumber = 1
         let searchArray = [1, 3, 4, 8, 13, 18, 22, 44, 53]
     
         let result = sut.search(for: targetNumber, in: searchArray)
@@ -87,13 +87,37 @@ final class BinarySearch: XCTestCase {
         XCTAssertEqual(searchArray.firstIndex(of: targetNumber), result)
     }
 
+    func test_searchForNumber18_returnsIDX6() {
+        let sut = makeSUT()
+        let targetNumber = 18
+        let searchArray = [1, 3, 4, 8, 13, 18, 22, 44, 53]
     
+        let result = sut.search(for: targetNumber, in: searchArray)
+        
+        XCTAssertEqual(searchArray.firstIndex(of: targetNumber), result)
+    }
     
+    func test_searchForNumber53_returnsIDX8() {
+        let sut = makeSUT()
+        let targetNumber = 53
+        let searchArray = [1, 3, 4, 8, 13, 18, 22, 44, 53]
+    
+        let result = sut.search(for: targetNumber, in: searchArray)
+        
+        XCTAssertEqual(searchArray.firstIndex(of: targetNumber), result)
+    }
+    
+    // MARK: - Helpers
+    
+    private func makeSUT() -> BinarySearchEngine {
+        BinarySearchEngine()
+    }
     
     func testPerformanceExample() throws {
-        // This is an example of a performance test case.
         self.measure {
-            // Put the code you want to measure the time of here.
+            test_searchForNumber53_returnsIDX8()
+            test_searchForNumber1_returnsIDX0()
+            test_searchForNumber18_returnsIDX6()
         }
     }
 }
