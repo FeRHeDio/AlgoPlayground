@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		76C61F682CDFFE4700B2AE31 /* AlgoPlayground.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76C61F5F2CDFFE4700B2AE31 /* AlgoPlayground.framework */; };
-		76C61F6D2CDFFE4700B2AE31 /* AlgoPlaygroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C61F6C2CDFFE4700B2AE31 /* AlgoPlaygroundTests.swift */; };
 		76C61F6E2CDFFE4700B2AE31 /* AlgoPlayground.h in Headers */ = {isa = PBXBuildFile; fileRef = 76C61F622CDFFE4700B2AE31 /* AlgoPlayground.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		76C61F7A2CDFFF5000B2AE31 /* BinarySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C61F792CDFFF5000B2AE31 /* BinarySearch.swift */; };
 /* End PBXBuildFile section */
@@ -27,7 +26,6 @@
 		76C61F5F2CDFFE4700B2AE31 /* AlgoPlayground.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AlgoPlayground.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76C61F622CDFFE4700B2AE31 /* AlgoPlayground.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlgoPlayground.h; sourceTree = "<group>"; };
 		76C61F672CDFFE4700B2AE31 /* AlgoPlaygroundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlgoPlaygroundTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		76C61F6C2CDFFE4700B2AE31 /* AlgoPlaygroundTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgoPlaygroundTests.swift; sourceTree = "<group>"; };
 		76C61F792CDFFF5000B2AE31 /* BinarySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinarySearch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,7 +77,6 @@
 		76C61F6B2CDFFE4700B2AE31 /* AlgoPlaygroundTests */ = {
 			isa = PBXGroup;
 			children = (
-				76C61F6C2CDFFE4700B2AE31 /* AlgoPlaygroundTests.swift */,
 				76C61F792CDFFF5000B2AE31 /* BinarySearch.swift */,
 			);
 			path = AlgoPlaygroundTests;
@@ -202,7 +199,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				76C61F7A2CDFFF5000B2AE31 /* BinarySearch.swift in Sources */,
-				76C61F6D2CDFFE4700B2AE31 /* AlgoPlaygroundTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
