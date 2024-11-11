@@ -53,6 +53,11 @@
 import XCTest
 
 class BinarySearchEngine {
+    
+    // MARK: Complexity Analysis
+    // O(Log(n)) Time
+    // O(1) Space
+    
     func iterativeBinarySearch(for targetNumber: Int, in array: [Int]) -> Int {
         var lidx = 0
         var ridx = array.count - 1
@@ -72,6 +77,31 @@ class BinarySearchEngine {
         
         return -1
     }
+    
+    // MARK: Complexity Analysis
+    // O(Log(n)) Time
+    // O(Log(n)) Space
+    
+    func recursiveBinarySearch(for targetNumber: Int, in array: [Int]) -> Int {
+        recursiveHelper(array: array, target: targetNumber, lidx: 0, ridx: array.count - 1)
+    }
+    
+    // MARK: Helpers
+    
+    func recursiveHelper(array: [Int], target: Int, lidx: Int, ridx: Int) -> Int {
+        if lidx > ridx { return -1 }
+        
+        let midx = (lidx + ridx) / 2
+        
+        if array[midx] == target {
+            return midx
+        } else if target < array[midx] {
+            return recursiveHelper(array: array, target: target, lidx: lidx, ridx: midx - 1)
+        } else {
+            return recursiveHelper(array: array, target: target, lidx: midx + 1, ridx: ridx)
+        }
+    }
+    
 }
 
 final class BinarySearch: XCTestCase {
@@ -125,6 +155,57 @@ final class BinarySearch: XCTestCase {
         XCTAssertEqual(-1, result)
     }
     
+    // MARK: Recursive Binary Search
+    
+    func test_recuersiveSearchForNumber1_returnsIDX0() {
+        let sut = makeSUT()
+        let targetNumber = 1
+        let searchArray = [1, 3, 4, 8, 13, 18, 22, 44, 53]
+    
+        let result = sut.recursiveBinarySearch(for: targetNumber, in: searchArray)
+        
+        XCTAssertEqual(searchArray.firstIndex(of: targetNumber), result)
+    }
+
+    func test_recuersiveSearchForNumber18_returnsIDX6() {
+        let sut = makeSUT()
+        let targetNumber = 18
+        let searchArray = [1, 3, 4, 8, 13, 18, 22, 44, 53]
+    
+        let result = sut.recursiveBinarySearch(for: targetNumber, in: searchArray)
+        
+        XCTAssertEqual(searchArray.firstIndex(of: targetNumber), result)
+    }
+    
+    func test_recuersiveSearchForNumber53_returnsIDX8() {
+        let sut = makeSUT()
+        let targetNumber = 53
+        let searchArray = [1, 3, 4, 8, 13, 18, 22, 44, 53]
+    
+        let result = sut.recursiveBinarySearch(for: targetNumber, in: searchArray)
+        
+        XCTAssertEqual(searchArray.firstIndex(of: targetNumber), result)
+    }
+    
+    func test_recuersiveSearchForNumber54_returnsMinusOne() {
+        let sut = makeSUT()
+        let targetNumber = 54
+        let searchArray = [1, 3, 4, 8, 13, 18, 22, 44, 53]
+    
+        let result = sut.recursiveBinarySearch(for: targetNumber, in: searchArray)
+        
+        XCTAssertEqual(-1, result)
+    }
+    
+    func test_recuersiveSearchForNumber0_returnsMinusOne() {
+        let sut = makeSUT()
+        let targetNumber = 0
+        let searchArray = [1, 3, 4, 8, 13, 18, 22, 44, 53]
+    
+        let result = sut.recursiveBinarySearch(for: targetNumber, in: searchArray)
+        
+        XCTAssertEqual(-1, result)
+    }
     
     // MARK: - Helpers
     
@@ -132,11 +213,23 @@ final class BinarySearch: XCTestCase {
         BinarySearchEngine()
     }
     
-    func testPerformanceExample() throws {
-        self.measure {
-            test_searchForNumber53_returnsIDX8()
+    func testIterativeBinarySearch() throws {
+        self.measure(metrics: [XCTClockMetric()]) {
             test_searchForNumber1_returnsIDX0()
             test_searchForNumber18_returnsIDX6()
+            test_searchForNumber53_returnsIDX8()
+            test_searchForNumber0_returnsMinusOne()
+            test_searchForNumber54_returnsMinusOne()
+        }
+    }
+    
+    func testRecursiveBinarySearch() throws {
+        self.measure(metrics: [XCTClockMetric()]) {
+            test_recuersiveSearchForNumber1_returnsIDX0()
+            test_recuersiveSearchForNumber18_returnsIDX6()
+            test_recuersiveSearchForNumber53_returnsIDX8()
+            test_recuersiveSearchForNumber0_returnsMinusOne()
+            test_recuersiveSearchForNumber54_returnsMinusOne()
         }
     }
 }
