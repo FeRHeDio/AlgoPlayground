@@ -21,7 +21,7 @@
     We can split the array in half and see if the target number belong to either part
     We continue to do this until find the number or not
  
-    First apporach:
+    ** Iterative Apporach **
  
     We can implement 3 pointers.
     One for the left side of the split (lidx) other for the right (ridx) and a third for the middle index of the array (midx).
@@ -44,9 +44,13 @@
         our target it's at the left side of our split, then
         ridx becomes equal to midx - 1
  
+    now while fires again until we find the number or the result keeps as -1.
     --
  
-    now while fires again until we find the number or the result keeps as -1.
+    ** Recursive approach **
+ 
+    The main difference is not using a while creating a helper who is recalled.
+    The space complexity is O(Log(n)) due to the fact that each recursive call is added to the call stack using more memory.
     
  */
 
