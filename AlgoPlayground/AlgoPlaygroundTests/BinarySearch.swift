@@ -53,7 +53,7 @@
 import XCTest
 
 class BinarySearchEngine {
-    func search(for targetNumber: Int, in array: [Int]) -> Int {
+    func iterativeBinarySearch(for targetNumber: Int, in array: [Int]) -> Int {
         var lidx = 0
         var ridx = array.count - 1
         var midx: Int = 0
@@ -80,7 +80,7 @@ final class BinarySearch: XCTestCase {
         let targetNumber = 1
         let searchArray = [1, 3, 4, 8, 13, 18, 22, 44, 53]
     
-        let result = sut.search(for: targetNumber, in: searchArray)
+        let result = sut.iterativeBinarySearch(for: targetNumber, in: searchArray)
         
         XCTAssertEqual(searchArray.firstIndex(of: targetNumber), result)
     }
@@ -90,7 +90,7 @@ final class BinarySearch: XCTestCase {
         let targetNumber = 18
         let searchArray = [1, 3, 4, 8, 13, 18, 22, 44, 53]
     
-        let result = sut.search(for: targetNumber, in: searchArray)
+        let result = sut.iterativeBinarySearch(for: targetNumber, in: searchArray)
         
         XCTAssertEqual(searchArray.firstIndex(of: targetNumber), result)
     }
@@ -100,7 +100,7 @@ final class BinarySearch: XCTestCase {
         let targetNumber = 53
         let searchArray = [1, 3, 4, 8, 13, 18, 22, 44, 53]
     
-        let result = sut.search(for: targetNumber, in: searchArray)
+        let result = sut.iterativeBinarySearch(for: targetNumber, in: searchArray)
         
         XCTAssertEqual(searchArray.firstIndex(of: targetNumber), result)
     }
@@ -110,7 +110,7 @@ final class BinarySearch: XCTestCase {
         let targetNumber = 54
         let searchArray = [1, 3, 4, 8, 13, 18, 22, 44, 53]
     
-        let result = sut.search(for: targetNumber, in: searchArray)
+        let result = sut.iterativeBinarySearch(for: targetNumber, in: searchArray)
         
         XCTAssertEqual(-1, result)
     }
@@ -120,7 +120,7 @@ final class BinarySearch: XCTestCase {
         let targetNumber = 0
         let searchArray = [1, 3, 4, 8, 13, 18, 22, 44, 53]
     
-        let result = sut.search(for: targetNumber, in: searchArray)
+        let result = sut.iterativeBinarySearch(for: targetNumber, in: searchArray)
         
         XCTAssertEqual(-1, result)
     }
