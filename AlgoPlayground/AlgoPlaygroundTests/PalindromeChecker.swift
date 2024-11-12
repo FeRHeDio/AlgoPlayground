@@ -15,7 +15,7 @@ class PalindromeCheckerEngine {
     }
     
     
-    // MARK: Complexity Analysis: O(n^2) Time - O(n) Space
+    // MARK: O(n^2) Time - O(n) Space
     func notThatEasyChecker(_ string: String) -> Bool {
         var reversedString = ""
         
@@ -25,6 +25,19 @@ class PalindromeCheckerEngine {
         
         return reversedString == string
     }
+    
+    // MARK: O(n) Time - O(n) Space
+    func checkWithArray(_ string: String) -> Bool {
+        var reversedChars = [String]()
+        let cleaned = string.lowercased().filter { $0.isLetter || $0.isNumber }
+        
+        for i in cleaned.indices.reversed() {
+            reversedChars.append(String(cleaned[i]))
+        }
+        
+        return cleaned == reversedChars.joined(separator: "")
+    }
+    
 }
 
 final class PalindromeChecker: XCTestCase {
@@ -47,6 +60,21 @@ final class PalindromeChecker: XCTestCase {
         
         XCTAssertFalse(sut.notThatEasyChecker("abcdcxxba"))
     }
+    
+    func test_checkWithArray_returnsTrue() {
+        let sut = PalindromeCheckerEngine()
+        
+        XCTAssertTrue(sut.checkWithArray("abcdcba"))
+    }
+    
+    func test_checkWithArray_panamaReturnsTrue() {
+        let sut = PalindromeCheckerEngine()
+        
+        let panama = "A man, a plan, a canal, Panama!"
+        
+        XCTAssertTrue(sut.checkWithArray(panama))
+    }
+    
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
