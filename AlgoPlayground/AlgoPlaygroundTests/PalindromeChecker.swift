@@ -13,6 +13,18 @@ class PalindromeCheckerEngine {
         
         return cleaned == String(cleaned.reversed())
     }
+    
+    
+    // MARK: Complexity Analysis: O(n^2) Time - O(n) Space
+    func notThatEasyChecker(_ string: String) -> Bool {
+        var reversedString = ""
+        
+        for i in string.indices.reversed() {
+            reversedString += String(string[i])
+        }
+        
+        return reversedString == string
+    }
 }
 
 final class PalindromeChecker: XCTestCase {
@@ -22,6 +34,18 @@ final class PalindromeChecker: XCTestCase {
         let panama = "A man, a plan, a canal, Panama!"
         
         XCTAssertTrue(sut.easyChecker(panama))
+    }
+    
+    func test_notThatEasyChecker_SucceedOnPalindrome() {
+        let sut = PalindromeCheckerEngine()
+        
+        XCTAssertTrue(sut.notThatEasyChecker("abcdcba"))
+    }
+    
+    func test_notThatEasyChecker_FailsOnNonPalindrome() {
+        let sut = PalindromeCheckerEngine()
+        
+        XCTAssertFalse(sut.notThatEasyChecker("abcdcxxba"))
     }
 
     func testPerformanceExample() throws {
