@@ -11,7 +11,7 @@ import XCTest
 // MARK: Pseudo
 
 /*
- // check if the sartidx is greater or equal to the endidx
+ // check if the startidx is greater or equal to the endidx
      // if so return
  
  // define the pivot
@@ -42,49 +42,67 @@ import XCTest
      // else
          // quickSortHelper(array, ridx + 1, endIdx
          // quickSortHelper(array, startIdx, ridx - 1)
- 
- */
-
+*/
 
 class QuickSortEngine {
-    func quickSort(_ array: [Int]) -> [Int] {
-        quickSortHelper(array: array, startIdx: 0, endIdx: array.count - 1)
+    func quickSort( _ array: inout [Int]) -> [Int] {
+        quickSortHelper(array: &array, startIdx: 0, endIdx: array.count - 1)
+        return array
     }
     
     // MARK: - Helpers
     
-    func quickSortHelper(array: [Int], startIdx: Int, endIdx: Int) -> [Int] {
+    func quickSortHelper(array: inout [Int], startIdx: Int, endIdx: Int) {
+        if startIdx >= endIdx {
+            return
+        }
         
+        let pidx = startIdx
+        var lidx = startIdx + 1
+        var ridx = endIdx
         
-        return [0, 1]
+        while ridx >= lidx {
+            if array[lidx] > array[pidx] && array[ridx] < array[pidx] {
+                array.swapAt(ridx, lidx)
+            }
+            
+            if array[lidx] <= array[pidx] {
+                lidx += 1
+            }
+            
+            if array[ridx] >= array[pidx] {
+                ridx -= 1
+            }
+        }
+        
+        array.swapAt(pidx, ridx)
+        
+        let leftSubArrayIsSmaller = array[ridx] - 1 - startIdx < endIdx - (array[ridx] + 1)
+        
+        if leftSubArrayIsSmaller {
+            quickSortHelper(array: &array, startIdx: startIdx, endIdx: ridx - 1)
+            quickSortHelper(array: &array, startIdx: ridx + 1, endIdx: endIdx)
+        } else {
+            quickSortHelper(array: &array, startIdx: ridx + 1, endIdx: endIdx)
+            quickSortHelper(array: &array, startIdx: startIdx, endIdx: ridx - 1)
+        }
     }
 }
 
 final class QuickSort: XCTestCase {
-    
-    func test_helper_startIdxIsNotGreaterThanEndIdx() {
+    func test_quickSort() {
         let sut = QuickSortEngine()
-        let inputArray = [1]
+        var inputArray = [9, 3, 2, 4, 12, 32, 7, 3, 25, 41, 88, 1, 3]
         
-        let result = sut.quickSortHelper(array: inputArray, startIdx: 0, endIdx: inputArray.count - 1)
+        let result = sut.quickSort(&inputArray)
         
-        XCTAssertGreaterThanOrEqual(0, result.count - 1)
+        XCTAssertEqual(result, inputArray.sorted())
     }
-
-//    func test_quickSort() {
-//        let sut = QuickSortEngine()
-//        let inputArray = [9, 3, 2, 4, 12, 32, 7, 3, 25, 41, 88, 1, 3]
-//        
-//        let result = sut.quickSort(inputArray)
-//        
-//        XCTAssertEqual(result, inputArray.sorted())
-//        
-//    }
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {
-            // Put the code you want to measure the time of here.
+            test_quickSort()
         }
     }
 
