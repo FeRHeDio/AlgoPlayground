@@ -5,6 +5,13 @@
 //  Created by Fernando Putallaz on 11/11/2024.
 //
 
+/*
+    ** Prompt **
+ 
+    Write a function that takes an array of integers and returns a sorted version of that array using the Qucick Sort Algorithm
+ 
+ */
+
 import XCTest
 
 
