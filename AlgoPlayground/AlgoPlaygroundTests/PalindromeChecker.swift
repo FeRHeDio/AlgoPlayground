@@ -38,6 +38,23 @@ class PalindromeCheckerEngine {
         return cleaned == reversedChars.joined(separator: "")
     }
     
+    // MARK: O(n) Time - O(n) Space
+    func checkPalindromeLiearly(_ string: String) -> Bool {
+        
+        var lidx = string.startIndex
+        var ridx = string.index(before: string.endIndex)
+        
+        while lidx < ridx {
+            if string[lidx] != string[ridx] {
+                return false
+            }
+            lidx = string.index(after: lidx)
+            ridx = string.index(before: ridx)
+        }
+        
+        return true
+    }
+    
 }
 
 final class PalindromeChecker: XCTestCase {
@@ -75,7 +92,18 @@ final class PalindromeChecker: XCTestCase {
         XCTAssertTrue(sut.checkWithArray(panama))
     }
     
-
+    func test_checkPalindromeLiearly_SucceedOnPalindrome() {
+        let sut = PalindromeCheckerEngine()
+        
+        XCTAssertTrue(sut.checkPalindromeLiearly("abcdcba"))
+    }
+    
+    func test_checkPalindromeLiearly_FailsOnNonPalindrome() {
+        let sut = PalindromeCheckerEngine()
+        
+        XCTAssertFalse(sut.checkPalindromeLiearly("abcdcxxba"))
+    }
+    
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {
