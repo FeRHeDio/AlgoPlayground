@@ -38,7 +38,7 @@ class PalindromeCheckerEngine {
         return cleaned == reversedChars.joined(separator: "")
     }
     
-    // MARK: O(n) Time - O(n) Space
+    // MARK: O(n) Time - O(1) Space
     func checkPalindromeLiearly(_ string: String) -> Bool {
         
         var lidx = string.startIndex
