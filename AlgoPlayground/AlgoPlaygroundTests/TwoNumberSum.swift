@@ -25,6 +25,8 @@ import XCTest
 
 class TwoNumberSumEngine {
     func findNumbersTwoForLoops(array: [Int], target: Int) -> [Int] {
+        guard !array.isEmpty else { return [] }
+        
         var result = [Int]()
         
         for i in array {
@@ -64,6 +66,12 @@ final class TwoNumberSum: XCTestCase {
         let result = sut.findNumbersTwoForLoops(array: array, target: target)
         
         XCTAssertEqual(result, [], "There are no 2 numbers that sum up to 10, received: \(result) instead")
+    }
+    
+    func test_twoNumberSum_returnsOnEmptyArray() {
+        let sut = makeSUT()
+        
+        XCTAssertEqual(sut.findNumbersTwoForLoops(array: [], target: 0), [])
     }
     
     // MARK: Helpers
