@@ -28,7 +28,7 @@ class TwoNumberSumEngine {
 final class TwoNumberSum: XCTestCase {
     
     func test_twoNumberSum_fiundNumbersWithTwoForLoops() {
-        let sut = TwoNumberSumEngine()
+        let sut = makeSUT()
         
         let array = [1, -9, -1, 11, 21]
         let target = 10
@@ -39,7 +39,7 @@ final class TwoNumberSum: XCTestCase {
     }
     
     func test_twoNumberSum_FailFiundindNumbersWithTwoForLoops() {
-        let sut = TwoNumberSumEngine()
+        let sut = makeSUT()
         
         let array = [1, -9, -21, 11, 21]
         let target = 10
@@ -47,6 +47,12 @@ final class TwoNumberSum: XCTestCase {
         let result = sut.findNumbersTwoForLoops(array: array, target: target)
         
         XCTAssertEqual(result, [], "There are no 2 numbers that sum up to 10, received: \(result) instead")
+    }
+    
+    // MARK: Helpers
+    
+    private func makeSUT() -> TwoNumberSumEngine {
+        TwoNumberSumEngine()
     }
     
     func testPerformanceExample() throws {
