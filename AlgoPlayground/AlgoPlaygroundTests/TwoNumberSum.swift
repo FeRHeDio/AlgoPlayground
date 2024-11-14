@@ -5,6 +5,22 @@
 //  Created by Fernando Putallaz on 14/11/2024.
 //
 
+/*
+ 
+    ** Prompt **
+ 
+    Write a function that takes a non-empty array of distinct integers and an integer representing
+    a target sum.
+    
+    If any two numbers in the input array sum up to the target sum, the function should return them in an array, in any order.
+    
+    If no two numbers sum up the target number, the function should return an empty array.
+    
+    Note that the target sum has to be obtained by summing two different integers in the array, you can't add a single integer
+    to itself in order to obtain the target sum.
+    
+ */
+ 
 import XCTest
 
 class TwoNumberSumEngine {
@@ -16,6 +32,7 @@ class TwoNumberSumEngine {
                 if i + y == target {
                     result.append(i)
                     result.append(y)
+                    
                     return result
                 }
             }
