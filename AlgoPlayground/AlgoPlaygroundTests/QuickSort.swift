@@ -61,7 +61,6 @@ class QuickSortEngine {
     
     func quickSortHelper(array: inout [Int], startIdx: Int, endIdx: Int) {
         if startIdx >= endIdx {
-            
             return
         }
         
@@ -99,7 +98,7 @@ class QuickSortEngine {
 
 final class QuickSort: XCTestCase {
     func test_quickSort() {
-        let sut = QuickSortEngine()
+        let sut = makeSUT()
         var inputArray = [9, 3, 2, 4, 12, 32, 7, 3, 25, 41, 88, 1, 3]
         
         let result = sut.quickSort(&inputArray)
@@ -108,8 +107,7 @@ final class QuickSort: XCTestCase {
     }
     
     func test_helper_returnsOnStartIdxGreaterThanEndIdx() {
-        let sut = QuickSortEngine()
-        
+        let sut = makeSUT()
         var array = [2, 1, 5]
         
         sut.quickSortHelper(array: &array, startIdx: 5, endIdx: array.endIndex - 1)
@@ -117,6 +115,12 @@ final class QuickSort: XCTestCase {
         XCTAssertEqual(array, [2, 1, 5], "The array shouldn't change because the startIdx is greater that endIdx and received this: \(array)")
     }
 
+    // MARK: - Helpers
+    
+    private func makeSUT() -> QuickSortEngine {
+        QuickSortEngine()
+    }
+    
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {
