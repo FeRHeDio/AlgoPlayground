@@ -51,6 +51,9 @@ import XCTest
          // quickSortHelper(array, startIdx, ridx - 1)
 */
 
+
+// MARK: - Worst case: O(n^2) Time - Best Case: O(N.Log(n))  -  O(Log(n)) - Space
+
 class QuickSortEngine {
     func quickSort( _ array: inout [Int]) -> [Int] {
         quickSortHelper(array: &array, startIdx: 0, endIdx: array.count - 1)
