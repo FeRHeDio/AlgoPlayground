@@ -25,13 +25,34 @@ import XCTest
 
 class TwoNumberSumEngine {
     
-    func findNumbersWithAnotherCollection(array: [Int], target: Int) -> [Int] {
+    func findTwoNumbersSum(array: [Int], target: Int) -> [Int] {
         guard !array.isEmpty else { return [] }
+        
+        let ordered = array.sorted()
+        
+        var lidx = 0
+        var ridx = ordered.count - 1
+        
+        while lidx < ridx {
+            var currentSum = ordered[lidx] + ordered[ridx]
+            
+            if currentSum == target {
+                return [ordered[lidx], ordered[ridx]]
+            } else
+            
+            if currentSum < target {
+                lidx += 1
+            } else
+            
+            if currentSum > target {
+                ridx -= 1
+            }
+        }
         
         return []
     }
     
-    
+    // Inefficient and almost wrong
     // MARK: - O(n^2) time - O(1) Space
     
     func findNumbersWithTwoForLoops(array: [Int], target: Int) -> [Int] {
@@ -83,10 +104,30 @@ final class TwoNumberSum: XCTestCase {
         XCTAssertEqual(sut.findNumbersWithTwoForLoops(array: [], target: 0), [])
     }
     
+    
+    // MARK: Tests for `findTwoNumberSum` func
+    
     func test_twoNumberSum_funcWithCollectionReturnsOnEmptyArray() {
         let sut = makeSUT()
         
-        XCTAssertEqual(sut.findNumbersWithAnotherCollection(array: [], target: 0), [])
+        XCTAssertEqual(sut.findTwoNumbersSum(array: [], target: 0), [])
+    }
+    
+    func test_twoNumberSum_twoNumberSum() {
+        let sut = makeSUT()
+        
+        let array = [1, -9, -1, 11, 21]
+        let target = 10
+        
+        let result = sut.findTwoNumbersSum(array: array, target: target)
+        
+        XCTAssertEqual(result, [-1, 11])
+    }
+    
+    func test_twoNumberSum_twoNumberSumReturnsOnEmptyArray() {
+        let sut = makeSUT()
+        
+        XCTAssertEqual(sut.findTwoNumbersSum(array: [], target: 0), [])
     }
     
     // MARK: Helpers
