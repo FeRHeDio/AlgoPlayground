@@ -25,6 +25,13 @@ import XCTest
 
 class TwoNumberSumEngine {
     
+    func findNumbersWithAnotherCollection(array: [Int], target: Int) -> [Int] {
+        guard !array.isEmpty else { return [] }
+        
+        return []
+    }
+    
+    
     // MARK: - O(n^2) time - O(1) Space
     
     func findNumbersWithTwoForLoops(array: [Int], target: Int) -> [Int] {
@@ -74,6 +81,12 @@ final class TwoNumberSum: XCTestCase {
         let sut = makeSUT()
         
         XCTAssertEqual(sut.findNumbersWithTwoForLoops(array: [], target: 0), [])
+    }
+    
+    func test_twoNumberSum_funcWithCollectionReturnsOnEmptyArray() {
+        let sut = makeSUT()
+        
+        XCTAssertEqual(sut.findNumbersWithAnotherCollection(array: [], target: 0), [])
     }
     
     // MARK: Helpers
