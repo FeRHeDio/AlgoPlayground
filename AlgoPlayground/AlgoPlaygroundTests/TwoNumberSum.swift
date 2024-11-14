@@ -25,10 +25,12 @@ import XCTest
 
 class TwoNumberSumEngine {
     
+    // MARK: - O(n Log(n)) time - O(1) Space
+    
     func findTwoNumbersSum(array: [Int], target: Int) -> [Int] {
         guard !array.isEmpty else { return [] }
         
-        let ordered = array.sorted()
+        let ordered = array.sorted() // O(n Log(n))
         
         var lidx = 0
         var ridx = ordered.count - 1
