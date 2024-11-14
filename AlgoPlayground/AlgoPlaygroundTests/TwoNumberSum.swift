@@ -38,6 +38,16 @@ final class TwoNumberSum: XCTestCase {
         XCTAssertEqual(result, [-1, 11])
     }
     
+    func test_twoNumberSum_FailFiundindNumbersWithTwoForLoops() {
+        let sut = TwoNumberSumEngine()
+        
+        let array = [1, -9, -21, 11, 21]
+        let target = 10
+        
+        let result = sut.findNumbersTwoForLoops(array: array, target: target)
+        
+        XCTAssertEqual(result, [], "There are no 2 numbers that sum up to 10, received: \(result) instead")
+    }
     
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
