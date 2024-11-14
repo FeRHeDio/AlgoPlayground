@@ -1,8 +1,8 @@
 # AlgoPlayground
 Exploring and practicing Algorithms and Data Structures in Swift, complete with test coverge.
 
-## Binary Search
+- Binary Search
 
-## Quick Sort
+- Quick Sort
 
-## Palindrome Check
+- Palindrome Check
