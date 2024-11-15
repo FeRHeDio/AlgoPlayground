@@ -6,3 +6,5 @@ Exploring and practicing Algorithms and Data Structures in Swift, complete with 
 - Quick Sort
 
 - Palindrome Check
+
+- Two Number Sum
