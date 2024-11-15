@@ -8,3 +8,5 @@ Exploring and practicing Algorithms and Data Structures in Swift, complete with 
 - Palindrome Check
 
 - Two Number Sum
+
+- Depth-first Search
