@@ -36,7 +36,7 @@ class TwoNumberSumEngine {
         var ridx = ordered.count - 1
         
         while lidx < ridx {
-            var currentSum = ordered[lidx] + ordered[ridx]
+            let currentSum = ordered[lidx] + ordered[ridx]
             
             if currentSum == target {
                 return [ordered[lidx], ordered[ridx]]
