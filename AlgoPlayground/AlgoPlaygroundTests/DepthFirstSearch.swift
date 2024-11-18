@@ -103,8 +103,7 @@ final class DepthFirstSearch: XCTestCase {
             .addChild(name: "I")
             .addChild(name: "J")
         
-        _ = graph.children[2]
-            .children[1]
+        _ = graph.children[2].children[1]
             .addChild(name: "LL")
         
         var arrayToReturn = [String]()
