@@ -61,27 +61,6 @@ class LinkedListRemoveDuplicateEngine {
 
 
 final class LinkedListRemoveDuplicate: XCTestCase {
-//    func test_initalWriteRead() {
-//        let sut = makeSUT()
-//        let orderedLinkedList: LinkedListRemoveDuplicateEngine.LinkedList
-//        
-//        let nodes = [
-//            LinkedListRemoveDuplicateEngine.Node(id: "1", next: "2", value: 1),
-//            LinkedListRemoveDuplicateEngine.Node(id: "2", next: "3", value: 1),
-//            LinkedListRemoveDuplicateEngine.Node(id: "3", next: "4", value: 6),
-//        ]
-//        
-//        orderedLinkedList = LinkedListRemoveDuplicateEngine.LinkedList(head: 1, nodes: nodes)
-//
-//        sut.insertList(list: orderedLinkedList)
-//        let result = sut.readList()
-//        
-//        XCTAssertEqual(result!.nodes, orderedLinkedList.nodes)
-//        
-//    }
-
-    
-    
     func test_linkedList_printLinkedList() {
         let node1 = LL(value: 1)
         let node2 = LL(value: 2)
@@ -104,5 +83,29 @@ final class LinkedListRemoveDuplicate: XCTestCase {
     
     private func makeSUT(head: LL) -> LL {
         LL(value: head.value)
+    }
+    
+    private func fromDictionary(_ dict: [String: Any]) -> LL? {
+        guard
+            let nodes = dict["nodes"] as? [[String: Any]],
+            let headId = dict["head"] as? String
+        else { return nil }
+        
+        var nodeMap: [String: LL] = [:]
+        for node in nodes {
+            if let id = node["id"] as? String, let value = node["value"] as? Int {
+                nodeMap[id] = LL(value: value)
+            }
+        }
+        
+        for node in nodes {
+            if let id = node["id"] as? String,
+               let nextId = node["next"] as? String,
+               let currentNode = nodeMap[id] {
+                currentNode.next = nodeMap[nextId]
+            }
+        }
+        
+        return nodeMap[headId]
     }
 }
