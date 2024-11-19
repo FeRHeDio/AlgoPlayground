@@ -60,44 +60,63 @@ class LinkedListRemoveDuplicateEngine {
 
 
 final class LinkedListRemoveDuplicate: XCTestCase {
-    func test_linkedList_printLinkedList() {
-        let node1 = LL(value: 1)
-        let node2 = LL(value: 2)
-        let node3 = LL(value: 3)
-        let node4 = LL(value: 4)
-            
-        node1.next = node2
-        node2.next = node3
-        node3.next = node4
+    func test_linkedList_noChangesReturnSame() {
+        let inputJSON: [String: Any] = [
+            "head": "0",
+            "nodes": [
+                ["id": "0", "next": "1", "value": 1],
+                ["id": "1", "next": "2", "value": 2],
+                ["id": "2", "next": nil, "value": 3]
+            ]
+        ]
         
-        let sut = makeSUT(head: node1)
+        let inputList = LinkedListsTestUtils.linkedListFromJSON(inputJSON)
         
-        sut.printList(node1)
+        let sut = makeSUT(head: inputList!)
+        
+        sut.printList(inputList)
+        
+        let result = sut.removeDuplicates(inputList!)
+        let resultJSON = LinkedListsTestUtils.linkedListToJSON(result)
+        
+        XCTAssertEqual(resultJSON as NSDictionary, inputJSON as NSDictionary)
+        
     }
     
-    func test_initalWriteRead() {
-        let node1 = LL(value: 1)
-        let node2 = LL(value: 2)
-        let node3 = LL(value: 3)
-        let node4 = LL(value: 4)
-        let node5 = LL(value: 4)
-        let node6 = LL(value: 4)
-        let node7 = LL(value: 6)
-        let node8 = LL(value: 9)
+    func test_removeDuplicates_returnCleanedList() {
+        let inputJSON: [String: Any] = [
+            "head": "0",
+            "nodes": [
+                ["id": "0", "next": "1", "value": 1],
+                ["id": "1", "next": "2", "value": 1],
+                ["id": "2", "next": "3", "value": 2],
+                ["id": "3", "next": "4", "value": 3],
+                ["id": "4", "next": "5", "value": 3],
+                ["id": "5", "next": "6", "value": 3],
+                ["id": "6", "next": "7", "value": 3],
+                ["id": "7", "next": "8", "value": 3],
+                ["id": "8", "next": "9", "value": 3],
+                ["id": "9", "next": nil, "value": 3]
+            ]
+        ]
         
-            
-        node1.next = node2
-        node2.next = node3
-        node3.next = node4
-        node4.next = node5
-        node5.next = node6
-        node7.next = node8
+        let expectedResult: [String: Any] = [
+            "head": "0",
+            "nodes": [
+                ["id": "0", "next": "1", "value": 1],
+                ["id": "1", "next": "2", "value": 2],
+                ["id": "2", "next": nil, "value": 3]
+            ]
+        ]
         
-        let sut = makeSUT(head: node1)
+        let inputList = LinkedListsTestUtils.linkedListFromJSON(inputJSON)
         
-        let result = sut.removeDuplicates(sut)
+        let sut = makeSUT(head: inputList!)
         
+        let result = sut.removeDuplicates(inputList!)
+        let outputJSON = LinkedListsTestUtils.linkedListToJSON(result)
         
+        XCTAssertEqual(outputJSON as NSDictionary, expectedResult as NSDictionary, "The linked list was not removing ocurrences correctly.")
         
     }
     
@@ -137,23 +156,48 @@ final class LinkedListRemoveDuplicate: XCTestCase {
         
         static func linkedListToJSON(_ head: LL) -> [String: Any] {
             var nodes: [[String: Any]] = []
-            var nodeMap: [ObjectIdentifier: String] = [:]
+            var nodeMap = [ObjectIdentifier: String]()
             var currentNode: LL? = head
             var idCounter = 0
-            
+
             while let node = currentNode {
-                let id = "\(idCounter)"
-                nodeMap[ObjectIdentifier(node)] = id
+                let objectId = ObjectIdentifier(node)
+                let id: String
+                
+                if let existingId = nodeMap[objectId] {
+                    id = existingId
+                } else {
+                    id = "\(idCounter)"
+                    nodeMap[objectId] = id
+                    idCounter += 1
+                }
+
+                let nextID = node.next.flatMap { nextNode in
+                    let nextObjectId = ObjectIdentifier(nextNode)
+                    if let existingNextId = nodeMap[nextObjectId] {
+                        return existingNextId
+                    } else {
+                        let newNextId = "\(idCounter)"
+                        nodeMap[nextObjectId] = newNextId
+                        idCounter += 1
+                        return newNextId
+                    }
+                }
+
                 nodes.append([
                     "id": id,
                     "value": node.value,
-                    "next": node.next != nil ? "\(idCounter + 1)" : NSNull()
+                    "next": nextID ?? NSNull()
                 ])
-                idCounter *= 1
+
                 currentNode = node.next
             }
-            
-            return ["head": 0, "nodes": nodes]
+
+            return [
+                "head": nodeMap[ObjectIdentifier(head)] ?? "0",
+                "nodes": nodes
+            ]
         }
+
     }
 }
