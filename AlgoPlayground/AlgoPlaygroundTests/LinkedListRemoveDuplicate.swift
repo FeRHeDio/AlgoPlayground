@@ -59,7 +59,6 @@ class LinkedListRemoveDuplicateEngine {
 }
 
 
-
 final class LinkedListRemoveDuplicate: XCTestCase {
     func test_linkedList_printLinkedList() {
         let node1 = LL(value: 1)
@@ -76,6 +75,32 @@ final class LinkedListRemoveDuplicate: XCTestCase {
         sut.printList(node1)
     }
     
+    func test_initalWriteRead() {
+        let node1 = LL(value: 1)
+        let node2 = LL(value: 2)
+        let node3 = LL(value: 3)
+        let node4 = LL(value: 4)
+        let node5 = LL(value: 4)
+        let node6 = LL(value: 4)
+        let node7 = LL(value: 6)
+        let node8 = LL(value: 9)
+        
+            
+        node1.next = node2
+        node2.next = node3
+        node3.next = node4
+        node4.next = node5
+        node5.next = node6
+        node7.next = node8
+        
+        let sut = makeSUT(head: node1)
+        
+        let result = sut.removeDuplicates(sut)
+        
+        
+        
+    }
+    
     
     // MARK: - Helpers
     
@@ -85,27 +110,50 @@ final class LinkedListRemoveDuplicate: XCTestCase {
         LL(value: head.value)
     }
     
-    private func fromDictionary(_ dict: [String: Any]) -> LL? {
-        guard
-            let nodes = dict["nodes"] as? [[String: Any]],
-            let headId = dict["head"] as? String
-        else { return nil }
-        
-        var nodeMap: [String: LL] = [:]
-        for node in nodes {
-            if let id = node["id"] as? String, let value = node["value"] as? Int {
-                nodeMap[id] = LL(value: value)
+    private class LinkedListsTestUtils {
+        static func linkedListFromJSON(_ dict: [String: Any]) -> LL? {
+            guard
+                let nodes = dict["nodes"] as? [[String: Any]],
+                let headId = dict["head"] as? String
+            else { return nil }
+            
+            var nodeMap: [String: LL] = [:]
+            for node in nodes {
+                if let id = node["id"] as? String, let value = node["value"] as? Int {
+                    nodeMap[id] = LL(value: value)
+                }
             }
+            
+            for node in nodes {
+                if let id = node["id"] as? String,
+                   let nextId = node["next"] as? String,
+                   let currentNode = nodeMap[id] {
+                    currentNode.next = nodeMap[nextId]
+                }
+            }
+            
+            return nodeMap[headId]
         }
         
-        for node in nodes {
-            if let id = node["id"] as? String,
-               let nextId = node["next"] as? String,
-               let currentNode = nodeMap[id] {
-                currentNode.next = nodeMap[nextId]
+        static func linkedListToJSON(_ head: LL) -> [String: Any] {
+            var nodes: [[String: Any]] = []
+            var nodeMap: [ObjectIdentifier: String] = [:]
+            var currentNode: LL? = head
+            var idCounter = 0
+            
+            while let node = currentNode {
+                let id = "\(idCounter)"
+                nodeMap[ObjectIdentifier(node)] = id
+                nodes.append([
+                    "id": id,
+                    "value": node.value,
+                    "next": node.next != nil ? "\(idCounter + 1)" : NSNull()
+                ])
+                idCounter *= 1
+                currentNode = node.next
             }
+            
+            return ["head": 0, "nodes": nodes]
         }
-        
-        return nodeMap[headId]
     }
 }
