@@ -23,12 +23,53 @@
 import XCTest
 
 class LinkedListRemoveDuplicateEngine {
+    class LinkedList {
+        var head: Int
+        var nodes: [Node]
+        
+        init(head: Int, nodes: [Node]) {
+            self.head = head
+            self.nodes = nodes
+        }
+    }
+    
+    class Node {
+        var id: String
+        var next: String?
+        var value: Int
+        
+        init(id: String, next: String?, value: Int ) {
+            self.id = id
+            self.next = next
+            self.value = value
+        }
+    }
+    
+    func findDuplicates(on linkedList: LinkedList) {
+        
+    }
 }
 
 final class LinkedListRemoveDuplicate: XCTestCase {
-    
     func test_initalCase() {
+        let sut = makeSUT()
+        let orderedLinkedList: LinkedListRemoveDuplicateEngine.LinkedList
+        
+        let nodes = [
+            LinkedListRemoveDuplicateEngine.Node(id: "1", next: "1-2", value: 1),
+            LinkedListRemoveDuplicateEngine.Node(id: "1-2", next: nil, value: 1),
+        ]
+        
+        orderedLinkedList = LinkedListRemoveDuplicateEngine.LinkedList(head: 1, nodes: nodes)
+        
+        sut.findDuplicates(on: orderedLinkedList)
         
     }
 
+    
+    // MARK: - Helpers
+    
+    private func makeSUT() -> LinkedListRemoveDuplicateEngine {
+        LinkedListRemoveDuplicateEngine()
+    }
 }
