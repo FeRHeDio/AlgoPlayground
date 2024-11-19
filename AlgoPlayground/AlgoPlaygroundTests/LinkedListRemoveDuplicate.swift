@@ -23,82 +23,86 @@
 import XCTest
 
 class LinkedListRemoveDuplicateEngine {
-    var linkedList: LinkedList?
-    
-    init(linkedList: LinkedList? = nil) {
-        self.linkedList = linkedList
-    }
-    
     class LinkedList {
-        var head: Int
-        var nodes: [Node]
-        
-        init(head: Int, nodes: [Node]) {
-            self.head = head
-            self.nodes = nodes
-        }
-    }
-    
-    class Node: Equatable {
-        static func == (lhs: LinkedListRemoveDuplicateEngine.Node, rhs: LinkedListRemoveDuplicateEngine.Node) -> Bool {
-            lhs.id == rhs.id
-        }
-        
-        var id: String
-        var next: String?
         var value: Int
+        var next: LinkedList?
         
-        init(id: String, next: String?, value: Int ) {
-            self.id = id
-            self.next = next
+        init(value: Int) {
             self.value = value
         }
-    }
-    
-    func findDuplicates(on linkedList: LinkedList) {
         
-        // when find a duplicate
-        // currentNode = head
-        // temp = currentNode.next.next
-        // currentNode.next = temp
-    }
-    
-    func readList() -> LinkedList? {
-        if let linkedList {
+        func removeDuplicates(_ linkedList: LinkedList) -> LinkedList {
+            var currentNode: LinkedList? = linkedList
+            
+            while currentNode != nil {
+                while currentNode?.value == currentNode?.next?.value {
+                    currentNode?.next = currentNode?.next?.next
+                }
+                
+                currentNode = currentNode?.next
+            }
+            
             return linkedList
         }
-        return nil
-    }
-    
-    func insertList(list: LinkedList) {
-        linkedList = list
+        
+        func printList(_ head: LinkedList?) {
+            var currentNode = head
+            
+            while let node = currentNode {
+                print(node.value, terminator: " -> ")
+                currentNode = node.next
+            }
+            
+            print("nil")
+        }
     }
 }
 
+
+
 final class LinkedListRemoveDuplicate: XCTestCase {
-    func test_initalWriteRead() {
-        let sut = makeSUT()
-        let orderedLinkedList: LinkedListRemoveDuplicateEngine.LinkedList
-        
-        let nodes = [
-            LinkedListRemoveDuplicateEngine.Node(id: "1", next: "2", value: 1),
-            LinkedListRemoveDuplicateEngine.Node(id: "2", next: "3", value: 1),
-            LinkedListRemoveDuplicateEngine.Node(id: "3", next: "4", value: 6),
-        ]
-        
-        orderedLinkedList = LinkedListRemoveDuplicateEngine.LinkedList(head: 1, nodes: nodes)
+//    func test_initalWriteRead() {
+//        let sut = makeSUT()
+//        let orderedLinkedList: LinkedListRemoveDuplicateEngine.LinkedList
+//        
+//        let nodes = [
+//            LinkedListRemoveDuplicateEngine.Node(id: "1", next: "2", value: 1),
+//            LinkedListRemoveDuplicateEngine.Node(id: "2", next: "3", value: 1),
+//            LinkedListRemoveDuplicateEngine.Node(id: "3", next: "4", value: 6),
+//        ]
+//        
+//        orderedLinkedList = LinkedListRemoveDuplicateEngine.LinkedList(head: 1, nodes: nodes)
+//
+//        sut.insertList(list: orderedLinkedList)
+//        let result = sut.readList()
+//        
+//        XCTAssertEqual(result!.nodes, orderedLinkedList.nodes)
+//        
+//    }
 
-        sut.insertList(list: orderedLinkedList)
-        let result = sut.readList()
+    
+    
+    func test_linkedList_printLinkedList() {
+        let node1 = LL(value: 1)
+        let node2 = LL(value: 2)
+        let node3 = LL(value: 3)
+        let node4 = LL(value: 4)
+            
+        node1.next = node2
+        node2.next = node3
+        node3.next = node4
         
-        XCTAssertEqual(result!.nodes, orderedLinkedList.nodes)
+        let sut = makeSUT(head: node1)
         
+        sut.printList(node1)
     }
-
+    
     
     // MARK: - Helpers
     
-    private func makeSUT() -> LinkedListRemoveDuplicateEngine {
-        LinkedListRemoveDuplicateEngine()
+    typealias LL = LinkedListRemoveDuplicateEngine.LinkedList
+    
+    private func makeSUT(head: LL) -> LL {
+        LL(value: head.value)
     }
 }
