@@ -23,6 +23,12 @@
 import XCTest
 
 class LinkedListRemoveDuplicateEngine {
+    var linkedList: LinkedList?
+    
+    init(linkedList: LinkedList? = nil) {
+        self.linkedList = linkedList
+    }
+    
     class LinkedList {
         var head: Int
         var nodes: [Node]
@@ -33,7 +39,11 @@ class LinkedListRemoveDuplicateEngine {
         }
     }
     
-    class Node {
+    class Node: Equatable {
+        static func == (lhs: LinkedListRemoveDuplicateEngine.Node, rhs: LinkedListRemoveDuplicateEngine.Node) -> Bool {
+            lhs.id == rhs.id
+        }
+        
         var id: String
         var next: String?
         var value: Int
@@ -47,22 +57,41 @@ class LinkedListRemoveDuplicateEngine {
     
     func findDuplicates(on linkedList: LinkedList) {
         
+        // when find a duplicate
+        // currentNode = head
+        // temp = currentNode.next.next
+        // currentNode.next = temp
+    }
+    
+    func readList() -> LinkedList? {
+        if let linkedList {
+            return linkedList
+        }
+        return nil
+    }
+    
+    func insertList(list: LinkedList) {
+        linkedList = list
     }
 }
 
 final class LinkedListRemoveDuplicate: XCTestCase {
-    func test_initalCase() {
+    func test_initalWriteRead() {
         let sut = makeSUT()
         let orderedLinkedList: LinkedListRemoveDuplicateEngine.LinkedList
         
         let nodes = [
-            LinkedListRemoveDuplicateEngine.Node(id: "1", next: "1-2", value: 1),
-            LinkedListRemoveDuplicateEngine.Node(id: "1-2", next: nil, value: 1),
+            LinkedListRemoveDuplicateEngine.Node(id: "1", next: "2", value: 1),
+            LinkedListRemoveDuplicateEngine.Node(id: "2", next: "3", value: 1),
+            LinkedListRemoveDuplicateEngine.Node(id: "3", next: "4", value: 6),
         ]
         
         orderedLinkedList = LinkedListRemoveDuplicateEngine.LinkedList(head: 1, nodes: nodes)
+
+        sut.insertList(list: orderedLinkedList)
+        let result = sut.readList()
         
-        sut.findDuplicates(on: orderedLinkedList)
+        XCTAssertEqual(result!.nodes, orderedLinkedList.nodes)
         
     }
 
