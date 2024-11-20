@@ -15,6 +15,7 @@
 		76C61F6E2CDFFE4700B2AE31 /* AlgoPlayground.h in Headers */ = {isa = PBXBuildFile; fileRef = 76C61F622CDFFE4700B2AE31 /* AlgoPlayground.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		76C61F7A2CDFFF5000B2AE31 /* BinarySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C61F792CDFFF5000B2AE31 /* BinarySearch.swift */; };
 		76C61F7C2CE224AE00B2AE31 /* QuickSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C61F7B2CE224AE00B2AE31 /* QuickSort.swift */; };
+		76E4DC582CEE1CBD00C4F4D7 /* BranchSums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E4DC572CEE1CBD00C4F4D7 /* BranchSums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,7 @@
 		76C61F672CDFFE4700B2AE31 /* AlgoPlaygroundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlgoPlaygroundTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76C61F792CDFFF5000B2AE31 /* BinarySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinarySearch.swift; sourceTree = "<group>"; };
 		76C61F7B2CE224AE00B2AE31 /* QuickSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSort.swift; sourceTree = "<group>"; };
+		76E4DC572CEE1CBD00C4F4D7 /* BranchSums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchSums.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				7695B97A2CE61CCD00336050 /* TwoNumberSum.swift */,
 				764974652CE779030062B5FF /* DepthFirstSearch.swift */,
 				7618A0E12CEB7F3D00E64E44 /* LinkedListRemoveDuplicate.swift */,
+				76E4DC572CEE1CBD00C4F4D7 /* BranchSums.swift */,
 			);
 			path = AlgoPlaygroundTests;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76E4DC582CEE1CBD00C4F4D7 /* BranchSums.swift in Sources */,
 				7614C0DD2CE2FC1A005F0F99 /* PalindromeChecker.swift in Sources */,
 				7695B97B2CE61CCD00336050 /* TwoNumberSum.swift in Sources */,
 				7618A0E22CEB7F3D00E64E44 /* LinkedListRemoveDuplicate.swift in Sources */,
