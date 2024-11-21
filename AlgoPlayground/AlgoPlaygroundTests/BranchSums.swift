@@ -19,25 +19,34 @@
 import XCTest
 
 class BinaryTree {
+    var root: TreeNode?
+    
+    init(root: TreeNode?) {
+        self.root = root
+    }
+}
+
+class TreeNode {
+    let id: String
     var value: Int
+    var left: TreeNode?
+    var right: TreeNode?
     
-    var left: BinaryTree?
-    var right: BinaryTree?
-    
-    init(value: Int, left: BinaryTree? = nil, right: BinaryTree? = nil) {
+    init(id: String, value: Int, left: TreeNode? = nil, right: TreeNode? = nil) {
+        self.id = id
         self.value = value
         self.left = left
         self.right = right
     }
     
-    func branchSums(root: BinaryTree) -> [Int] {
+    func branchSums(root: TreeNode) -> [Int] {
         var sums = [Int]()
         calculateBranchSums(node: root, runningSum: 0, sums: &sums)
         
         return sums
     }
     
-    func calculateBranchSums(node: BinaryTree, runningSum: Int, sums: inout [Int]) {
+    func calculateBranchSums(node: TreeNode, runningSum: Int, sums: inout [Int]) {
         var newRunningSum = runningSum + node.value
         
         if node.left == nil && node.right == nil {
@@ -57,6 +66,40 @@ class BinaryTree {
 
 final class BranchSums: XCTestCase {
 
+    func test_binaryTree_calculateSums() {
+        let root = makeFirstTree()
+        let tree = BinaryTree(root: root)
+        let sut = TreeNode(id: root.id, value: root.value)
+        
+        let result = sut.branchSums(root: root)
+        
+        let expectedResult = [15, 16, 8, 10, 11]
+        
+        XCTAssertEqual(result, expectedResult)
+    }
     
-
+    
+    // MARK: - Helpers
+    
+    private func makeFirstTree() -> TreeNode {
+        //         1
+        //       /   \
+        //      2     3
+        //     / \   / \
+        //    4   5 6   7
+        //   / \
+        //  8   9
+        
+        let node9 = TreeNode(id: "9", value: 9)
+        let node7 = TreeNode(id: "7", value: 7)
+        let node6 = TreeNode(id: "6", value: 6)
+        let node8 = TreeNode(id: "8", value: 8)
+        let node4 = TreeNode(id: "4", value: 4, left: node8, right: node9)
+        let node5 = TreeNode(id: "5", value: 5)
+        let node2 = TreeNode(id: "2", value: 2, left: node4, right: node5)
+        let node3 = TreeNode(id: "3", value: 3, left: node6, right: node7)
+        let rootNode = TreeNode(id: "1", value: 1, left: node2, right: node3)
+        
+        return rootNode
+    }
 }
