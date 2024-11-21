@@ -18,14 +18,6 @@
 
 import XCTest
 
-class BinaryTree {
-    var root: TreeNode?
-    
-    init(root: TreeNode?) {
-        self.root = root
-    }
-}
-
 class TreeNode {
     let id: String
     var value: Int
@@ -65,10 +57,8 @@ class TreeNode {
 }
 
 final class BranchSums: XCTestCase {
-
     func test_binaryTree_calculateSums() {
         let root = makeFirstTree()
-        let tree = BinaryTree(root: root)
         let sut = TreeNode(id: root.id, value: root.value)
         
         let result = sut.branchSums(root: root)
