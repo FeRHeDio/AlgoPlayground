@@ -95,16 +95,16 @@ final class LinkedListRemoveDuplicate: XCTestCase {
         LL(value: head.value)
     }
     
-    private func createLinkedList(from values: [Int]) -> LinkedListRemoveDuplicateEngine.LinkedList {
+    private func createLinkedList(from values: [Int]) -> LL {
         guard !values.isEmpty else {
             fatalError("Cannot create a linked list with no values")
         }
         
-        let head = LinkedListRemoveDuplicateEngine.LinkedList(value: values[0])
+        let head = LL(value: values[0])
         var current = head
         
         for value in values.dropFirst() {
-            let newNode = LinkedListRemoveDuplicateEngine.LinkedList(value: value)
+            let newNode = LL(value: value)
             current.next = newNode
             current = newNode
         }
@@ -112,7 +112,7 @@ final class LinkedListRemoveDuplicate: XCTestCase {
         return head
     }
     
-    private func linkedListToArray(_ head: LinkedListRemoveDuplicateEngine.LinkedList?) -> [Int] {
+    private func linkedListToArray(_ head: LL?) -> [Int] {
         var array: [Int] = []
         var current = head
         
