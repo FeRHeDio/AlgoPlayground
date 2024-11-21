@@ -120,8 +120,65 @@ final class LinkedListRemoveDuplicate: XCTestCase {
         
     }
     
+    func test_linkedList_removeDuplicatesReturnCleanedList() {
+        let linkedList = createLinkedList(from: [1, 3, 3, 5, 5, 9])
+        let sut = makeSUT(head: linkedList)
+        
+        let result = sut.removeDuplicates(linkedList)
+        
+        let expectedValues = [1, 3, 5, 9]
+        
+        let resultValues = linkedListToArray(result)
+        
+        XCTAssertEqual(resultValues, expectedValues)
+    }
+    
+    func test_linkedList_removeDuplicatesDoesntModify() {
+        let linkedList = createLinkedList(from: [1, 3, 5, 9])
+        let sut = makeSUT(head: linkedList)
+        
+        let result = sut.removeDuplicates(linkedList)
+        
+        let expectedValues = [1, 3, 5, 9]
+        
+        let resultValues = linkedListToArray(result)
+        
+        XCTAssertEqual(resultValues, expectedValues)
+    }
+    
     
     // MARK: - Helpers
+    
+    
+    private func createLinkedList(from values: [Int]) -> LinkedListRemoveDuplicateEngine.LinkedList {
+        guard !values.isEmpty else {
+            fatalError("Cannot create a linked list with no values")
+        }
+        
+        let head = LinkedListRemoveDuplicateEngine.LinkedList(value: values[0])
+        var current = head
+        
+        for value in values.dropFirst() {
+            let newNode = LinkedListRemoveDuplicateEngine.LinkedList(value: value)
+            current.next = newNode
+            current = newNode
+        }
+        
+        return head
+    }
+    
+    private func linkedListToArray(_ head: LinkedListRemoveDuplicateEngine.LinkedList?) -> [Int] {
+        var array: [Int] = []
+        var current = head
+        
+        while let node = current {
+            array.append(node.value)
+            current = node.next
+        }
+        
+        return array
+    }
+    
     
     typealias LL = LinkedListRemoveDuplicateEngine.LinkedList
     
