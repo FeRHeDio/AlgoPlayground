@@ -30,7 +30,12 @@ class TreeNode {
         self.left = left
         self.right = right
     }
-    
+}
+
+
+// MARK: - O(n) Time - O(N) Space
+
+extension TreeNode {
     func branchSums(root: TreeNode) -> [Int] {
         var sums = [Int]()
         calculateBranchSums(node: root, runningSum: 0, sums: &sums)
