@@ -44,7 +44,7 @@ extension TreeNode {
     }
     
     func calculateBranchSums(node: TreeNode, runningSum: Int, sums: inout [Int]) {
-        var newRunningSum = runningSum + node.value
+        let newRunningSum = runningSum + node.value
         
         if node.left == nil && node.right == nil {
             sums.append(newRunningSum)
