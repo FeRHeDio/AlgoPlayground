@@ -19,11 +19,44 @@
 import XCTest
 
 class BinaryTree {
+    var value: Int
     
+    var left: BinaryTree?
+    var right: BinaryTree?
     
+    init(value: Int, left: BinaryTree? = nil, right: BinaryTree? = nil) {
+        self.value = value
+        self.left = left
+        self.right = right
+    }
+    
+    func branchSums(root: BinaryTree) -> [Int] {
+        var sums = [Int]()
+        calculateBranchSums(node: root, runningSum: 0, sums: &sums)
+        
+        return sums
+    }
+    
+    func calculateBranchSums(node: BinaryTree, runningSum: Int, sums: inout [Int]) {
+        var newRunningSum = runningSum + node.value
+        
+        if node.left == nil && node.right == nil {
+            sums.append(newRunningSum)
+            return
+        }
+        
+        if let left = node.left {
+            calculateBranchSums(node: left, runningSum: newRunningSum, sums: &sums)
+        }
+        
+        if let right = node.right {
+            calculateBranchSums(node: right, runningSum: newRunningSum, sums: &sums)
+        }
+    }
 }
 
 final class BranchSums: XCTestCase {
 
+    
 
 }
