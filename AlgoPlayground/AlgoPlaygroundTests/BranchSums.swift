@@ -62,7 +62,6 @@ final class BranchSums: XCTestCase {
         let sut = TreeNode(id: root.id, value: root.value)
         
         let result = sut.branchSums(root: root)
-        
         let expectedResult = [15, 16, 8, 10, 11]
         
         XCTAssertEqual(result, expectedResult)
