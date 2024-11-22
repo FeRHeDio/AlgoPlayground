@@ -54,7 +54,7 @@ class TwoNumberSumEngine {
         return []
     }
     
-    // Inefficient and almost wrong
+    // Inefficient and almost wrong . not almost, this is wrong, is adding up the same number over and over.
     // MARK: - O(n^2) time - O(1) Space
     
     func findNumbersWithTwoForLoops(array: [Int], target: Int) -> [Int] {
