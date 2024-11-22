@@ -11,6 +11,7 @@
 		7618A0E22CEB7F3D00E64E44 /* LinkedListRemoveDuplicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7618A0E12CEB7F3D00E64E44 /* LinkedListRemoveDuplicate.swift */; };
 		764974662CE779030062B5FF /* DepthFirstSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764974652CE779030062B5FF /* DepthFirstSearch.swift */; };
 		7695B97B2CE61CCD00336050 /* TwoNumberSum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7695B97A2CE61CCD00336050 /* TwoNumberSum.swift */; };
+		76BEEB322CF0B7D500C97275 /* Fibonacci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BEEB312CF0B7D400C97275 /* Fibonacci.swift */; };
 		76C61F682CDFFE4700B2AE31 /* AlgoPlayground.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76C61F5F2CDFFE4700B2AE31 /* AlgoPlayground.framework */; };
 		76C61F6E2CDFFE4700B2AE31 /* AlgoPlayground.h in Headers */ = {isa = PBXBuildFile; fileRef = 76C61F622CDFFE4700B2AE31 /* AlgoPlayground.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		76C61F7A2CDFFF5000B2AE31 /* BinarySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C61F792CDFFF5000B2AE31 /* BinarySearch.swift */; };
@@ -33,6 +34,7 @@
 		7618A0E12CEB7F3D00E64E44 /* LinkedListRemoveDuplicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedListRemoveDuplicate.swift; sourceTree = "<group>"; };
 		764974652CE779030062B5FF /* DepthFirstSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepthFirstSearch.swift; sourceTree = "<group>"; };
 		7695B97A2CE61CCD00336050 /* TwoNumberSum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoNumberSum.swift; sourceTree = "<group>"; };
+		76BEEB312CF0B7D400C97275 /* Fibonacci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fibonacci.swift; sourceTree = "<group>"; };
 		76C61F5F2CDFFE4700B2AE31 /* AlgoPlayground.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AlgoPlayground.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76C61F622CDFFE4700B2AE31 /* AlgoPlayground.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlgoPlayground.h; sourceTree = "<group>"; };
 		76C61F672CDFFE4700B2AE31 /* AlgoPlaygroundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlgoPlaygroundTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +98,7 @@
 				764974652CE779030062B5FF /* DepthFirstSearch.swift */,
 				7618A0E12CEB7F3D00E64E44 /* LinkedListRemoveDuplicate.swift */,
 				76E4DC572CEE1CBD00C4F4D7 /* BranchSums.swift */,
+				76BEEB312CF0B7D400C97275 /* Fibonacci.swift */,
 			);
 			path = AlgoPlaygroundTests;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76BEEB322CF0B7D500C97275 /* Fibonacci.swift in Sources */,
 				76E4DC582CEE1CBD00C4F4D7 /* BranchSums.swift in Sources */,
 				7614C0DD2CE2FC1A005F0F99 /* PalindromeChecker.swift in Sources */,
 				7695B97B2CE61CCD00336050 /* TwoNumberSum.swift in Sources */,
