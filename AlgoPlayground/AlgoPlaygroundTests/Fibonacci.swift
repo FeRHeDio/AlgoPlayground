@@ -88,38 +88,6 @@ final class Fibonacci: XCTestCase {
         XCTAssertEqual(result, 1)
     }
     
-    func test_fibonacci_takes5Returns3() {
-        let sut = makeSUT()
-        
-        let result = sut.getNthFib(n: 5)
-        
-        XCTAssertEqual(result, 3)
-    }
-    
-    func test_fibonacci_takes6Returns5() {
-        let sut = makeSUT()
-        
-        let result = sut.getNthFib(n: 6)
-        
-        XCTAssertEqual(result, 5)
-    }
-    
-    func test_fibonacci_takes7Returns8() {
-        let sut = makeSUT()
-        
-        let result = sut.getNthFib(n: 7)
-        
-        XCTAssertEqual(result, 8)
-    }
-    
-    func test_fibonacci_takes8Returns13() {
-        let sut = makeSUT()
-        
-        let result = sut.getNthFib(n: 8)
-        
-        XCTAssertEqual(result, 13)
-    }
-    
     func test_fibonacci_takesNforPerformanceTest(n: Int) {
         let sut = makeSUT()
         
@@ -127,6 +95,37 @@ final class Fibonacci: XCTestCase {
     }
     
     //MARK: Tests for getNthFibWithMemoize approach
+    
+    func test_fibonacciGetNthFibWithMemoize_takesTwoReturnsOne() {
+        let sut = makeSUT()
+        
+        let result = sut.getNthFibWithMemoize(n: 2)
+        
+        XCTAssertEqual(result, 1)
+    }
+    
+    func test_fibonacciGetNthFibWithMemoize_takesOneReturnsZero() {
+        let sut = makeSUT()
+        
+        let result = sut.getNthFibWithMemoize(n: 1)
+        
+        XCTAssertEqual(result, 0)
+    }
+    
+    func test_fibonacciGetNthFibWithMemoize_takes3Returns2() {
+        let sut = makeSUT()
+        
+        let result = sut.getNthFibWithMemoize(n: 3)
+        
+        XCTAssertEqual(result, 1)
+    }
+    
+    func test_fibonacciGetNthFibWithMemoize_takesNforPerformanceTest(n: Int) {
+        let sut = makeSUT()
+        
+        _ = sut.getNthFibWithMemoize(n: n)
+    }
+    
     
     func test_fibonacciGetNthFibWithMemoize_takes8Returns13() {
         let sut = makeSUT()
@@ -145,11 +144,16 @@ final class Fibonacci: XCTestCase {
     
     //MARK: - Performance
     
-    func testRecursiveBinarySearch() throws {
+    // WARNING: Do not enter larger numbers for this algo which will take a long time to execute.
+    func testFibonnacciNaiveApproach() throws {
         self.measure(metrics: [XCTClockMetric(), XCTCPUMetric(), XCTMemoryMetric()]) {
-            
-            // WARNING: Do not enter larger numbers for this algo which will take a long time to execute.
             test_fibonacci_takesNforPerformanceTest(n: 16)
+        }
+    }
+    
+    func testFibonnacciMemoApproach() throws {
+        self.measure(metrics: [XCTClockMetric(), XCTCPUMetric(), XCTMemoryMetric()]) {
+            test_fibonacciGetNthFibWithMemoize_takesNforPerformanceTest(n: 16)
         }
     }
 
