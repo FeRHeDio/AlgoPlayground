@@ -43,7 +43,24 @@ class FibonacciEngine {
             return getNthFib(n: n - 1) + getNthFib(n: n - 2)
         }
     }
- }
+    
+    //getNthFibWithMemoize(n: n - 1) + getNthFibWithMemoize(n: n - 2)
+    func getNthFibWithMemoize(n: Int) -> Int {
+        var memo = [Int: Int]()
+        
+        if n == 1 { return 0 }
+        if n == 2 { return 1 }
+        
+        if let cached = memo[n] {
+            return cached
+        }
+        
+        let result = getNthFibWithMemoize(n: n - 1) + getNthFibWithMemoize(n: n - 2)
+        
+        memo[n] = result
+        return result
+    }
+}
 
 final class Fibonacci: XCTestCase {
     
@@ -107,6 +124,16 @@ final class Fibonacci: XCTestCase {
         let sut = makeSUT()
         
         _ = sut.getNthFib(n: n)
+    }
+    
+    //MARK: Tests for getNthFibWithMemoize approach
+    
+    func test_fibonacciGetNthFibWithMemoize_takes8Returns13() {
+        let sut = makeSUT()
+        
+        let result = sut.getNthFibWithMemoize(n: 8)
+        
+        XCTAssertEqual(result, 13)
     }
     
     
