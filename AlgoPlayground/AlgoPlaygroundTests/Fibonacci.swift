@@ -46,7 +46,7 @@ class FibonacciEngine {
 final class Fibonacci: XCTestCase {
     
     func test_fibonacci_takesTwoReturnsOne() {
-        let sut = FibonacciEngine()
+        let sut = makeSUT()
         
         let result = sut.getNthFib(n: 2)
         
@@ -54,7 +54,7 @@ final class Fibonacci: XCTestCase {
     }
     
     func test_fibonacci_takesOneReturnsZero() {
-        let sut = FibonacciEngine()
+        let sut = makeSUT()
         
         let result = sut.getNthFib(n: 1)
         
@@ -62,7 +62,7 @@ final class Fibonacci: XCTestCase {
     }
     
     func test_fibonacci_takes3Returns2() {
-        let sut = FibonacciEngine()
+        let sut = makeSUT()
         
         let result = sut.getNthFib(n: 3)
         
@@ -70,7 +70,7 @@ final class Fibonacci: XCTestCase {
     }
     
     func test_fibonacci_takes5Returns3() {
-        let sut = FibonacciEngine()
+        let sut = makeSUT()
         
         let result = sut.getNthFib(n: 5)
         
@@ -78,7 +78,7 @@ final class Fibonacci: XCTestCase {
     }
     
     func test_fibonacci_takes6Returns5() {
-        let sut = FibonacciEngine()
+        let sut = makeSUT()
         
         let result = sut.getNthFib(n: 6)
         
@@ -86,7 +86,7 @@ final class Fibonacci: XCTestCase {
     }
     
     func test_fibonacci_takes7Returns8() {
-        let sut = FibonacciEngine()
+        let sut = makeSUT()
         
         let result = sut.getNthFib(n: 7)
         
@@ -94,13 +94,17 @@ final class Fibonacci: XCTestCase {
     }
     
     func test_fibonacci_takes8Returns13() {
-        let sut = FibonacciEngine()
+        let sut = makeSUT()
         
         let result = sut.getNthFib(n: 8)
         
         XCTAssertEqual(result, 13)
     }
     
-
+    //MARK: - Helpers
+    
+    private func makeSUT() -> FibonacciEngine {
+        FibonacciEngine()
+    }
 
 }
