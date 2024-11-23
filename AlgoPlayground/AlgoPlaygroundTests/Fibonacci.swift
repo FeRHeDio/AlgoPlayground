@@ -101,10 +101,27 @@ final class Fibonacci: XCTestCase {
         XCTAssertEqual(result, 13)
     }
     
+    func test_fibonacci_takesNforPerformanceTest(n: Int) {
+        let sut = makeSUT()
+        
+        _ = sut.getNthFib(n: n)
+    }
+    
+    
     //MARK: - Helpers
     
     private func makeSUT() -> FibonacciEngine {
         FibonacciEngine()
+    }
+    
+    //MARK: - Performance
+    
+    func testRecursiveBinarySearch() throws {
+        self.measure(metrics: [XCTClockMetric(), XCTCPUMetric(), XCTMemoryMetric()]) {
+            
+            // WARNING: Do not enter larger numbers for this algo which will take a long time to execute.
+            test_fibonacci_takesNforPerformanceTest(n: 16)
+        }
     }
 
 }
