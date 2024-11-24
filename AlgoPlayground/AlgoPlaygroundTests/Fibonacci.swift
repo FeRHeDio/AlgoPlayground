@@ -30,7 +30,7 @@
 
 import XCTest
 
-// MARK: Naive Approach - O(2^n) Time - O(n) Space
+// MARK: - Naive Approach - O(2^n) Time - O(n) Space
 class FibonacciEngine {
     func getNthFib(n: Int) -> Int {
         if n == 2 {
@@ -76,7 +76,7 @@ final class Fibonacci: XCTestCase {
     }
 }
 
-// MARK: Memoize Approach - O(n) Time  O(n) Space
+// MARK: - Memoize Approach - O(n) Time  O(n) Space
 extension FibonacciEngine {
     func getNthFibWithMemoize(n: Int) -> Int {
         var memo = [Int: Int]()
