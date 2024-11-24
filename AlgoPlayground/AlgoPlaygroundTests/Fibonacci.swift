@@ -43,28 +43,6 @@ class FibonacciEngine {
     }
 }
 
-extension FibonacciEngine {
-    func getNthFibIterative(n: Int) -> Int {
-        
-        var lastTwo = [0, 1]
-        var counter = 3
-        
-        while counter <= n {
-            var nextFib = lastTwo[0] + lastTwo[1]
-            lastTwo[0] = lastTwo[1]
-            lastTwo[1] = nextFib
-            
-            counter += 1
-        }
-        if n > 1 {
-            return lastTwo[1]
-        }  else {
-           return lastTwo[0]
-        }
-    }
-    
-}
-
 // MARK: Tests for naive approach
 final class Fibonacci: XCTestCase {
     func test_fibonacci_takesTwoReturnsOne() {
@@ -159,7 +137,29 @@ extension Fibonacci {
     }
 }
 
-//getNthFibIterative
+
+// MARK: - Iterative Approach - O(n) Time  O(1) Space
+extension FibonacciEngine {
+    func getNthFibIterative(n: Int) -> Int {
+        var lastTwo = [0, 1]
+        var counter = 3
+        
+        while counter <= n {
+            let nextFib = lastTwo[0] + lastTwo[1]
+            lastTwo[0] = lastTwo[1]
+            lastTwo[1] = nextFib
+            
+            counter += 1
+        }
+        if n > 1 {
+            return lastTwo[1]
+        }  else {
+           return lastTwo[0]
+        }
+    }
+}
+
+//MARK: Tests for getNthFibIterative approach
 
 extension Fibonacci {
     func test_getNthFibIterative_takesTwoReturnsOne() {
