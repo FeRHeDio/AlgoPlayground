@@ -137,7 +137,6 @@ extension Fibonacci {
     }
 }
 
-
 // MARK: - Iterative Approach - O(n) Time  O(1) Space
 extension FibonacciEngine {
     func getNthFibIterative(n: Int) -> Int {
@@ -151,9 +150,10 @@ extension FibonacciEngine {
             
             counter += 1
         }
+        
         if n > 1 {
             return lastTwo[1]
-        }  else {
+        } else {
            return lastTwo[0]
         }
     }
@@ -228,5 +228,4 @@ extension Fibonacci {
             test_getNthFibIterative_takesNforPerformanceTest(n: 16)
         }
     }
-
 }
