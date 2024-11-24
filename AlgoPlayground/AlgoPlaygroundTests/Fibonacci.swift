@@ -26,14 +26,13 @@
      F(7) = 8 (7th Fibonacci value)
      F(8) = 13 (8th Fibonacci value)
         
-    
  */
 
 import XCTest
 
 class FibonacciEngine {
     
-    // MARK: Naive approach - O(2^n) Time - O(n) Space
+    // MARK: Naive Approach - O(2^n) Time - O(n) Space
     func getNthFib(n: Int) -> Int {
         if n == 2 {
             return 1
@@ -44,7 +43,7 @@ class FibonacciEngine {
         }
     }
     
-    //getNthFibWithMemoize(n: n - 1) + getNthFibWithMemoize(n: n - 2)
+    // MARK: Memoize Approach - O(n) Time  O(n) Space
     func getNthFibWithMemoize(n: Int) -> Int {
         var memo = [Int: Int]()
         
