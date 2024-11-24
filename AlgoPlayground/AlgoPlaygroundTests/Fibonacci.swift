@@ -43,6 +43,28 @@ class FibonacciEngine {
     }
 }
 
+extension FibonacciEngine {
+    func getNthFibIterative(n: Int) -> Int {
+        
+        var lastTwo = [0, 1]
+        var counter = 3
+        
+        while counter <= n {
+            var nextFib = lastTwo[0] + lastTwo[1]
+            lastTwo[0] = lastTwo[1]
+            lastTwo[1] = nextFib
+            
+            counter += 1
+        }
+        if n > 1 {
+            return lastTwo[1]
+        }  else {
+           return lastTwo[0]
+        }
+    }
+    
+}
+
 // MARK: Tests for naive approach
 final class Fibonacci: XCTestCase {
     func test_fibonacci_takesTwoReturnsOne() {
@@ -137,6 +159,49 @@ extension Fibonacci {
     }
 }
 
+//getNthFibIterative
+
+extension Fibonacci {
+    func test_getNthFibIterative_takesTwoReturnsOne() {
+        let sut = makeSUT()
+        
+        let result = sut.getNthFibIterative(n: 2)
+        
+        XCTAssertEqual(result, 1)
+    }
+    
+    func test_getNthFibIterative_takesOneReturnsZero() {
+        let sut = makeSUT()
+        
+        let result = sut.getNthFibIterative(n: 1)
+        
+        XCTAssertEqual(result, 0)
+    }
+    
+    func test_getNthFibIterative_takes3Returns2() {
+        let sut = makeSUT()
+        
+        let result = sut.getNthFibIterative(n: 3)
+        
+        XCTAssertEqual(result, 1)
+    }
+    
+    func test_getNthFibIterative_takes8Returns13() {
+        let sut = makeSUT()
+        
+        let result = sut.getNthFibIterative(n: 8)
+        
+        XCTAssertEqual(result, 13)
+    }
+    
+    func test_getNthFibIterative_takesNforPerformanceTest(n: Int) {
+        let sut = makeSUT()
+        
+        _ = sut.getNthFibIterative(n: n)
+    }
+}
+
+
 //MARK: - Helpers
 extension Fibonacci {
     private func makeSUT() -> FibonacciEngine {
@@ -155,6 +220,12 @@ extension Fibonacci {
     func testFibonnacciMemoApproach() throws {
         self.measure(metrics: [XCTClockMetric(), XCTCPUMetric(), XCTMemoryMetric()]) {
             test_fibonacciGetNthFibWithMemoize_takesNforPerformanceTest(n: 16)
+        }
+    }
+    
+    func testFibonnaccigetNthFibIterative() throws {
+        self.measure(metrics: [XCTClockMetric(), XCTCPUMetric(), XCTMemoryMetric()]) {
+            test_getNthFibIterative_takesNforPerformanceTest(n: 16)
         }
     }
 
