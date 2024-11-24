@@ -30,9 +30,8 @@
 
 import XCTest
 
+// MARK: Naive Approach - O(2^n) Time - O(n) Space
 class FibonacciEngine {
-    
-    // MARK: Naive Approach - O(2^n) Time - O(n) Space
     func getNthFib(n: Int) -> Int {
         if n == 2 {
             return 1
@@ -42,27 +41,10 @@ class FibonacciEngine {
             return getNthFib(n: n - 1) + getNthFib(n: n - 2)
         }
     }
-    
-    // MARK: Memoize Approach - O(n) Time  O(n) Space
-    func getNthFibWithMemoize(n: Int) -> Int {
-        var memo = [Int: Int]()
-        
-        if n == 1 { return 0 }
-        if n == 2 { return 1 }
-        
-        if let cached = memo[n] {
-            return cached
-        }
-        
-        let result = getNthFibWithMemoize(n: n - 1) + getNthFibWithMemoize(n: n - 2)
-        
-        memo[n] = result
-        return result
-    }
 }
 
+// MARK: Tests for naive approach
 final class Fibonacci: XCTestCase {
-    
     func test_fibonacci_takesTwoReturnsOne() {
         let sut = makeSUT()
         
@@ -92,9 +74,29 @@ final class Fibonacci: XCTestCase {
         
         _ = sut.getNthFib(n: n)
     }
-    
-    //MARK: Tests for getNthFibWithMemoize approach
-    
+}
+
+// MARK: Memoize Approach - O(n) Time  O(n) Space
+extension FibonacciEngine {
+    func getNthFibWithMemoize(n: Int) -> Int {
+        var memo = [Int: Int]()
+        
+        if n == 1 { return 0 }
+        if n == 2 { return 1 }
+        
+        if let cached = memo[n] {
+            return cached
+        }
+        
+        let result = getNthFibWithMemoize(n: n - 1) + getNthFibWithMemoize(n: n - 2)
+        
+        memo[n] = result
+        return result
+    }
+}
+
+//MARK: Tests for getNthFibWithMemoize approach
+extension Fibonacci {
     func test_fibonacciGetNthFibWithMemoize_takesTwoReturnsOne() {
         let sut = makeSUT()
         
@@ -133,10 +135,10 @@ final class Fibonacci: XCTestCase {
         
         XCTAssertEqual(result, 13)
     }
-    
-    
-    //MARK: - Helpers
-    
+}
+
+//MARK: - Helpers
+extension Fibonacci {
     private func makeSUT() -> FibonacciEngine {
         FibonacciEngine()
     }
