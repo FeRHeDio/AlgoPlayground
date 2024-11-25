@@ -36,17 +36,17 @@ class TwoNumberSumEngine {
         var ridx = ordered.count - 1
         
         while lidx < ridx {
-            let currentSum = ordered[lidx] + ordered[ridx]
+            let current = ordered[lidx] + ordered[ridx]
             
-            if currentSum == target {
+            if current == target {
                 return [ordered[lidx], ordered[ridx]]
             } else
             
-            if currentSum < target {
+            if current < target {
                 lidx += 1
             } else
             
-            if currentSum > target {
+            if current > target {
                 ridx -= 1
             }
         }
