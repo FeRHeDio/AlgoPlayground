@@ -16,3 +16,5 @@ Exploring and practicing Algorithms and Data Structures in Swift, complete with 
 - Binary Trees - Branch Sums
 
 - Fibonacci Sequence
+
+- Class Photo
