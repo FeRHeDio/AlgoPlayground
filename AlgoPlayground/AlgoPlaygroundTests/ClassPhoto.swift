@@ -37,14 +37,8 @@ class ClassPhotoEngine {
             var blueShirt = blueShirts[idx]
             var redShirt = redShirts[idx]
             
-            if shirtInFront == "RED" {
-                if redShirt >= blueShirt {
-                    return false
-                }
-            } else {
-                if blueShirt >= redShirt {
-                    return false
-                }
+            if (shirtInFront == "RED" && redShirt >= blueShirt) || (shirtInFront == "BLUE" && blueShirt >= redShirt) {
+                return false
             }
         }
         return true
