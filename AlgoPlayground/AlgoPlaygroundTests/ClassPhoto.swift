@@ -27,11 +27,44 @@
 import XCTest
 
 class ClassPhotoEngine {
-    
-    
+    func classPhoto(redShirts: inout [Int], blueShirts: inout [Int]) -> Bool {
+        redShirts.sort(by: >)
+        blueShirts.sort(by: >)
+        
+        var shirtInFront = ""
+        
+        if redShirts[0] > blueShirts[0] {
+            shirtInFront = "BLUE"
+        } else {
+            shirtInFront = "RED"
+        }
+        
+        for idx in blueShirts.indices {
+            var blueShirt = blueShirts[idx]
+            var redShirt = redShirts[idx]
+            
+            if shirtInFront == "RED" {
+                if redShirt >= blueShirt {
+                    return false
+                }
+            } else {
+                if blueShirt >= redShirt {
+                    return false
+                }
+            }
+        }
+        return true
+    }
 }
 
 final class ClassPhoto: XCTestCase {
-
-
+    func test_classPhoto_returnsTrue() {
+        let sut = ClassPhotoEngine()
+        var redShirts = [4, 2, 3, 8]
+        var blueShirts = [5, 3, 4, 9]
+        
+        let result = sut.classPhoto(redShirts: &blueShirts, blueShirts: &redShirts)
+        
+        XCTAssertEqual(result, true)
+    }
 }
