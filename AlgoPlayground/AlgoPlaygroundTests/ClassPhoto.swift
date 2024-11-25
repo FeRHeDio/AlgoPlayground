@@ -66,6 +66,26 @@ final class ClassPhoto: XCTestCase {
         XCTAssertEqual(result, false)
     }
     
+    func test_classPhoto_returnsTrue1() {
+        let sut = makeSUT()
+        var redShirts = [3, 5, 6, 8, 2]
+        var blueShirts = [2, 4, 7, 5, 1]
+        
+        let result = sut.classPhoto(redShirts: &blueShirts, blueShirts: &redShirts)
+        
+        XCTAssertEqual(result, true)
+    }
+    
+    func test_classPhoto_returnsFalse1() {
+        let sut = makeSUT()
+        var redShirts = [19, 19, 21, 1, 1, 1, 1, 1]
+        var blueShirts = [20, 5, 4, 4, 4, 4, 4, 4]
+        
+        let result = sut.classPhoto(redShirts: &blueShirts, blueShirts: &redShirts)
+        
+        XCTAssertEqual(result, false)
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT() -> ClassPhotoEngine {
