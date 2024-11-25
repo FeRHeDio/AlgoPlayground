@@ -59,12 +59,28 @@ class ClassPhotoEngine {
 
 final class ClassPhoto: XCTestCase {
     func test_classPhoto_returnsTrue() {
-        let sut = ClassPhotoEngine()
+        let sut = makeSUT()
         var redShirts = [4, 2, 3, 8]
         var blueShirts = [5, 3, 4, 9]
         
         let result = sut.classPhoto(redShirts: &blueShirts, blueShirts: &redShirts)
         
         XCTAssertEqual(result, true)
+    }
+    
+    func test_classPhoto_returnsFalse() {
+        let sut = makeSUT()
+        var redShirts = [4, 4, 3, 8] // the last number is greater than the latest number in the prior defined back row.
+        var blueShirts = [5, 3, 4, 9]
+        
+        let result = sut.classPhoto(redShirts: &blueShirts, blueShirts: &redShirts)
+        
+        XCTAssertEqual(result, false)
+    }
+    
+    // MARK: - Helpers
+    
+    private func makeSUT() -> ClassPhotoEngine {
+        ClassPhotoEngine()
     }
 }
