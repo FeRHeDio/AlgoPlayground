@@ -31,13 +31,7 @@ class ClassPhotoEngine {
         redShirts.sort(by: >)
         blueShirts.sort(by: >)
         
-        var shirtInFront = ""
-        
-        if redShirts[0] > blueShirts[0] {
-            shirtInFront = "BLUE"
-        } else {
-            shirtInFront = "RED"
-        }
+        var shirtInFront = redShirts[0] > blueShirts[0] ? "BLUE" : "RED"
         
         for idx in blueShirts.indices {
             var blueShirt = blueShirts[idx]
