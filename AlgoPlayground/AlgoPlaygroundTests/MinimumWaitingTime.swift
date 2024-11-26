@@ -47,7 +47,7 @@ class WaitingTimeEngine {
 
 final class MinimumWaitingTime: XCTestCase {
     func test_waitingTime_firstTest() {
-        let sut = WaitingTimeEngine()
+        let sut = makeSUT()
         
         var input = [3, 2, 1, 2, 6]
         
@@ -57,7 +57,7 @@ final class MinimumWaitingTime: XCTestCase {
     }
     
     func test_waitingTime_secondTest() {
-        let sut = WaitingTimeEngine()
+        let sut = makeSUT()
         
         var input =  [17, 4, 3]
         
@@ -67,12 +67,18 @@ final class MinimumWaitingTime: XCTestCase {
     }
     
     func test_waitingTime_thirdTest() {
-        let sut = WaitingTimeEngine()
+        let sut = makeSUT()
         
         var input = [1, 1, 1, 4, 5, 6, 8, 1, 1, 2, 1]
         
         let result = sut.calculateMinimumTime(of: &input)
         
         XCTAssertEqual(result, 81)
+    }
+    
+    // MARK: - Helpers
+    
+    private func makeSUT() -> WaitingTimeEngine {
+        WaitingTimeEngine()
     }
 }
