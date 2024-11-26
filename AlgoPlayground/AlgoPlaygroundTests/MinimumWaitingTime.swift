@@ -30,8 +30,18 @@
 import XCTest
 
 class WaitingTimeEngine {
-    func returnTrue() -> Bool {
-        true
+    func calculateMinimumTime(of array: inout [Int]) -> Int {
+        var result = 0
+        
+        array.sort(by: <)
+        
+        array.enumerated().forEach { idx, duration in
+            let queriesLeft = array.count - (idx + 1)
+            
+            result += duration * queriesLeft
+        }
+        
+        return result
     }
 }
 
@@ -39,6 +49,10 @@ final class MinimumWaitingTime: XCTestCase {
     func test_waitingTime_firstTest() {
         let sut = WaitingTimeEngine()
         
-        XCTAssertTrue(sut.returnTrue())
+        var input = [3, 2, 1, 2, 6]
+        
+        let result = sut.calculateMinimumTime(of: &input)
+        
+        XCTAssertEqual(result, 17)
     }
 }
