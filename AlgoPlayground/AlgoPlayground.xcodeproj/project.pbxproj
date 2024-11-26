@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7614C0DD2CE2FC1A005F0F99 /* PalindromeChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7614C0DC2CE2FC1A005F0F99 /* PalindromeChecker.swift */; };
 		7618A0E22CEB7F3D00E64E44 /* LinkedListRemoveDuplicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7618A0E12CEB7F3D00E64E44 /* LinkedListRemoveDuplicate.swift */; };
+		7623932A2CF5F77B00F98205 /* MinimumWaitingTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762393292CF5F77B00F98205 /* MinimumWaitingTime.swift */; };
 		764974662CE779030062B5FF /* DepthFirstSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764974652CE779030062B5FF /* DepthFirstSearch.swift */; };
 		76824BD22CF411A500985AD2 /* ClassPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76824BD12CF411A500985AD2 /* ClassPhoto.swift */; };
 		7695B97B2CE61CCD00336050 /* TwoNumberSum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7695B97A2CE61CCD00336050 /* TwoNumberSum.swift */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		7614C0DC2CE2FC1A005F0F99 /* PalindromeChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PalindromeChecker.swift; sourceTree = "<group>"; };
 		7618A0E12CEB7F3D00E64E44 /* LinkedListRemoveDuplicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedListRemoveDuplicate.swift; sourceTree = "<group>"; };
+		762393292CF5F77B00F98205 /* MinimumWaitingTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimumWaitingTime.swift; sourceTree = "<group>"; };
 		764974652CE779030062B5FF /* DepthFirstSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepthFirstSearch.swift; sourceTree = "<group>"; };
 		76824BD12CF411A500985AD2 /* ClassPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassPhoto.swift; sourceTree = "<group>"; };
 		7695B97A2CE61CCD00336050 /* TwoNumberSum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoNumberSum.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				76E4DC572CEE1CBD00C4F4D7 /* BranchSums.swift */,
 				76BEEB312CF0B7D400C97275 /* Fibonacci.swift */,
 				76824BD12CF411A500985AD2 /* ClassPhoto.swift */,
+				762393292CF5F77B00F98205 /* MinimumWaitingTime.swift */,
 			);
 			path = AlgoPlaygroundTests;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				7614C0DD2CE2FC1A005F0F99 /* PalindromeChecker.swift in Sources */,
 				76824BD22CF411A500985AD2 /* ClassPhoto.swift in Sources */,
 				7695B97B2CE61CCD00336050 /* TwoNumberSum.swift in Sources */,
+				7623932A2CF5F77B00F98205 /* MinimumWaitingTime.swift in Sources */,
 				7618A0E22CEB7F3D00E64E44 /* LinkedListRemoveDuplicate.swift in Sources */,
 				764974662CE779030062B5FF /* DepthFirstSearch.swift in Sources */,
 				76C61F7A2CDFFF5000B2AE31 /* BinarySearch.swift in Sources */,
