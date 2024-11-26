@@ -55,4 +55,24 @@ final class MinimumWaitingTime: XCTestCase {
         
         XCTAssertEqual(result, 17)
     }
+    
+    func test_waitingTime_secondTest() {
+        let sut = WaitingTimeEngine()
+        
+        var input =  [17, 4, 3]
+        
+        let result = sut.calculateMinimumTime(of: &input)
+        
+        XCTAssertEqual(result, 10)
+    }
+    
+    func test_waitingTime_thirdTest() {
+        let sut = WaitingTimeEngine()
+        
+        var input = [1, 1, 1, 4, 5, 6, 8, 1, 1, 2, 1]
+        
+        let result = sut.calculateMinimumTime(of: &input)
+        
+        XCTAssertEqual(result, 81)
+    }
 }
