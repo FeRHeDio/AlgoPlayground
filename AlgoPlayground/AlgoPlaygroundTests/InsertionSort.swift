@@ -39,9 +39,18 @@ class InsertionSortEngine {
 }
 
 final class InsertionSort: XCTestCase {
-    func test_initial_returnTrue() {
+    func test_insertionSort_returnsFirstSortedArray() {
         let sut = makeSUT()
         var array = [2, 4, 3, 9, 9, 1]
+        
+        let result = sut.insertionSort(&array)
+        
+        XCTAssertEqual(result, array.sorted())
+    }
+    
+    func test_insertionSort_returnsSecondSortedArray() {
+        let sut = makeSUT()
+        var array = [-4, 5, 10, 8, -10, -6, -4, -2, -5, 3, 5, -4, -5, -1, 1, 6, -7, -6, -7, 8]
         
         let result = sut.insertionSort(&array)
         
