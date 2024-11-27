@@ -24,16 +24,27 @@
 import XCTest
 
 class InsertionSortEngine {
-    
-    func sort() -> Bool {
-        return true
+    func insertionSort(_ array: inout [Int]) -> [Int] {
+        for idx in array.indices {
+            var jdx = idx
+            
+            while jdx > 0 && array[jdx] < array[jdx - 1] {
+                array.swapAt(jdx, jdx - 1)
+                jdx -= 1
+            }
+        }
+        
+        return array
     }
 }
 
 final class InsertionSort: XCTestCase {
     func test_initial_returnTrue() {
         let sut = InsertionSortEngine()
+        var array = [2, 4, 3, 9, 9, 1]
         
-        XCTAssertEqual(sut.sort(), true)
+        let result = sut.insertionSort(&array)
+        
+        XCTAssertEqual(result, array.sorted())
     }
 }
