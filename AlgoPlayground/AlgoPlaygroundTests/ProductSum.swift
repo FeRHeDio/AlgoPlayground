@@ -29,22 +29,18 @@
 import XCTest
 
 class ProductSumEngine {
-    func productSum(array: [Any]) -> Int {
-        productSumHelper(array)
-    }
-    
-    private func productSumHelper(_ array: [Any], multiplier: Int = 1) -> Int {
+    func productSum(_ array: [Any], multiplier: Int = 1) -> Int {
         var result = 0
         
         array.forEach { element in
-            if let number = element as? Int {
-                result += number * multiplier
-            } else if let nestedArray = element as? [Int] {
-                result += productSumHelper(nestedArray, multiplier: multiplier + 1)
+            if let nestedArray = element as? [Any] {
+                result += productSum(nestedArray, multiplier: multiplier + 1)
+            } else if let number = element as? Int {
+                result += number
             }
         }
         
-        return result
+        return result * multiplier
     }
 }
 
@@ -54,7 +50,7 @@ final class ProductSum: XCTestCase {
         
         let array: [Any] = [5, 2, [7, -1], 3, [6, [-13, 8], 4]]
         
-        let result = sut.productSum(array: array)
+        let result = sut.productSum(array)
         
         XCTAssertEqual(result, 12)
     }
