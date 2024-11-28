@@ -20,3 +20,5 @@ Exploring and practicing Algorithms and Data Structures in Swift, complete with 
 - Class Photo
 
 - Minimum Waiting Time
+
+- Product Sum
