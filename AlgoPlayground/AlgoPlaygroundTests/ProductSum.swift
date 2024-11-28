@@ -29,6 +29,9 @@
 import XCTest
 
 class ProductSumEngine {
+    
+    // MARK: - O(n) Time - O(d) Space where d is the depth of the special array or how many nested array it contains.
+    
     func productSum(_ array: [Any], multiplier: Int = 1) -> Int {
         var result = 0
         
