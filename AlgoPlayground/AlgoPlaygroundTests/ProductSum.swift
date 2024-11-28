@@ -55,6 +55,17 @@ final class ProductSum: XCTestCase {
         XCTAssertEqual(result, 12)
     }
     
+    
+    func test_productSumEngine_returns600() {
+        let sut = makeSUT()
+        
+        let array: [Any] = [[[[[ 5 ]]]]] // 5 x5 -> x4 -> x3 -> x2 -> x1
+        
+        let result = sut.productSum(array)
+        
+        XCTAssertEqual(result, 600)
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT() -> ProductSumEngine {
