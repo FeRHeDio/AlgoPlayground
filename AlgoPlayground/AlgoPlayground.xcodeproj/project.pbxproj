@@ -19,6 +19,7 @@
 		76C61F6E2CDFFE4700B2AE31 /* AlgoPlayground.h in Headers */ = {isa = PBXBuildFile; fileRef = 76C61F622CDFFE4700B2AE31 /* AlgoPlayground.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		76C61F7A2CDFFF5000B2AE31 /* BinarySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C61F792CDFFF5000B2AE31 /* BinarySearch.swift */; };
 		76C61F7C2CE224AE00B2AE31 /* QuickSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C61F7B2CE224AE00B2AE31 /* QuickSort.swift */; };
+		76E48F042CF88DC4004F8E7F /* ProductSum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E48F032CF88DC4004F8E7F /* ProductSum.swift */; };
 		76E4DC582CEE1CBD00C4F4D7 /* BranchSums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E4DC572CEE1CBD00C4F4D7 /* BranchSums.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		76C61F672CDFFE4700B2AE31 /* AlgoPlaygroundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlgoPlaygroundTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76C61F792CDFFF5000B2AE31 /* BinarySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinarySearch.swift; sourceTree = "<group>"; };
 		76C61F7B2CE224AE00B2AE31 /* QuickSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSort.swift; sourceTree = "<group>"; };
+		76E48F032CF88DC4004F8E7F /* ProductSum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSum.swift; sourceTree = "<group>"; };
 		76E4DC572CEE1CBD00C4F4D7 /* BranchSums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchSums.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +110,7 @@
 				76BEEB312CF0B7D400C97275 /* Fibonacci.swift */,
 				76824BD12CF411A500985AD2 /* ClassPhoto.swift */,
 				762393292CF5F77B00F98205 /* MinimumWaitingTime.swift */,
+				76E48F032CF88DC4004F8E7F /* ProductSum.swift */,
 			);
 			path = AlgoPlaygroundTests;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				7618A0E22CEB7F3D00E64E44 /* LinkedListRemoveDuplicate.swift in Sources */,
 				764974662CE779030062B5FF /* DepthFirstSearch.swift in Sources */,
 				76A3F8E32CF69C0B00833BFB /* InsertionSort.swift in Sources */,
+				76E48F042CF88DC4004F8E7F /* ProductSum.swift in Sources */,
 				76C61F7A2CDFFF5000B2AE31 /* BinarySearch.swift in Sources */,
 				76C61F7C2CE224AE00B2AE31 /* QuickSort.swift in Sources */,
 			);
