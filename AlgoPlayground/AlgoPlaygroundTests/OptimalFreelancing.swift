@@ -27,6 +27,9 @@
 import XCTest
 
 class OptimalFreelancingEngine {
+    
+    // MARK: - O(n log(n)) Time - O(1) Space
+    
     func calculateOptimal(_ jobs: [[String: Int]]) -> Int {
         var profit = 0
         let lengthOfWeek = 7
