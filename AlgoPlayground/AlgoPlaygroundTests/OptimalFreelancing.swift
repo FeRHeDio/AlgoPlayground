@@ -27,18 +27,33 @@
 import XCTest
 
 class OptimalFreelancingEngine {
-    func calculateOptimal(_ jobs: inout [[String: Int]]) -> Int {
-        var result = 0
+    func calculateOptimal(_ jobs: [[String: Int]]) -> Int {
+        var profit = 0
+        let lengthOfWeek = 7
+        var timeline = Array(repeating: false, count: lengthOfWeek)
         
-        jobs = jobs.sorted { (job1, job2) in
-            (job1["payment"] ?? 0) < (job2["payment"] ?? 0)
+        // Sort in descending order
+        let sortedJobs = jobs.sorted { $0["payment"]! > $1["payment"]! }
+        
+        for job in sortedJobs {
+            guard let deadline = job["deadline"], let payment = job["payment"] else { continue }
+            
+            let maxTime = min(deadline, lengthOfWeek)
+            
+            // For each job, the latest available day (within its deadline) is checked using a reverse loop (stride).
+            for time in stride(from: maxTime - 1, through: 0, by: -1) {
+                
+                // If a day is available (false), it is marked as booked (true), and the payment is added to the profit.
+                if !timeline[time] {
+                    timeline[time] = true
+                    profit += payment
+                    
+                    break
+                }
+            }
         }
         
-        for job in jobs {
-            // incomplete stuff
-        }
-        
-        return result
+        return profit
     }
 }
 
@@ -47,7 +62,7 @@ final class OptimalFreelancing: XCTestCase {
     func test_optimalFreelancing_returnsTrue() {
         let sut = OptimalFreelancingEngine()
         
-        var jobs = [
+        let jobs = [
             [
                 "deadline": 8,
                 "payment": 3
@@ -62,8 +77,8 @@ final class OptimalFreelancing: XCTestCase {
             ],
         ]
         
-        let result = sut.calculateOptimal(&jobs)
+        let result = sut.calculateOptimal(jobs)
         
-        XCTAssertEqual(result, 0)
+        XCTAssertEqual(result, 5)
     }
 }
