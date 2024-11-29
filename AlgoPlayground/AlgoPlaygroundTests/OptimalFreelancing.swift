@@ -89,6 +89,16 @@ final class OptimalFreelancing: XCTestCase {
         XCTAssertEqual(result, 142)
     }
     
+    func test_optimalFreelancing_takesAnEmptyArrayReturns0() {
+        let sut = makeSUT()
+        
+        let jobs: [[String: Int]] = []
+        
+        let result = sut.calculateOptimal(jobs)
+        
+        XCTAssertEqual(result, 0)
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT() -> OptimalFreelancingEngine {
