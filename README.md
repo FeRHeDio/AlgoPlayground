@@ -22,3 +22,5 @@ Exploring and practicing Algorithms and Data Structures in Swift, complete with 
 - Minimum Waiting Time
 
 - Product Sum
+
+- Optimal Freelancing
