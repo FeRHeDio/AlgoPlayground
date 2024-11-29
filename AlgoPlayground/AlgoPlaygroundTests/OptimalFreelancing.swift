@@ -59,27 +59,34 @@ class OptimalFreelancingEngine {
 
 
 final class OptimalFreelancing: XCTestCase {
-    func test_optimalFreelancing_returnsTrue() {
+    func test_optimalFreelancing_returns5() {
         let sut = makeSUT()
         
         let jobs = [
-            [
-                "deadline": 8,
-                "payment": 3
-            ],
-            [
-                "deadline": 1,
-                "payment": 1
-            ],
-            [
-                "deadline": 1,
-                "payment": 2
-            ],
+            ["deadline": 8, "payment": 3],
+            ["deadline": 1, "payment": 1],
+            ["deadline": 1, "payment": 2],
         ]
         
         let result = sut.calculateOptimal(jobs)
         
         XCTAssertEqual(result, 5)
+    }
+    
+    func test_optimalFreelancing_returns142() {
+        let sut = makeSUT()
+        
+        let jobs = [
+            ["deadline": 2, "payment": 100],
+            ["deadline": 1, "payment": 19],
+            ["deadline": 2, "payment": 27],
+            ["deadline": 1, "payment": 25],
+            ["deadline": 3, "payment": 15]
+        ]
+        
+        let result = sut.calculateOptimal(jobs)
+        
+        XCTAssertEqual(result, 142)
     }
     
     // MARK: - Helpers
