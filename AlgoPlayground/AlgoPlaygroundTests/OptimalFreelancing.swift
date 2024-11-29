@@ -27,8 +27,18 @@
 import XCTest
 
 class OptimalFreelancingEngine {
-    func calculate() -> Bool {
-        true
+    func calculateOptimal(_ jobs: inout [[String: Int]]) -> Int {
+        var result = 0
+        
+        jobs = jobs.sorted { (job1, job2) in
+            (job1["payment"] ?? 0) < (job2["payment"] ?? 0)
+        }
+        
+        for job in jobs {
+            // incomplete stuff
+        }
+        
+        return result
     }
 }
 
@@ -37,6 +47,23 @@ final class OptimalFreelancing: XCTestCase {
     func test_optimalFreelancing_returnsTrue() {
         let sut = OptimalFreelancingEngine()
         
-        XCTAssertEqual(sut.calculate(), true)
+        var jobs = [
+            [
+                "deadline": 8,
+                "payment": 3
+            ],
+            [
+                "deadline": 1,
+                "payment": 1
+            ],
+            [
+                "deadline": 1,
+                "payment": 2
+            ],
+        ]
+        
+        let result = sut.calculateOptimal(&jobs)
+        
+        XCTAssertEqual(result, 0)
     }
 }
