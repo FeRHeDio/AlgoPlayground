@@ -60,7 +60,7 @@ class OptimalFreelancingEngine {
 
 final class OptimalFreelancing: XCTestCase {
     func test_optimalFreelancing_returnsTrue() {
-        let sut = OptimalFreelancingEngine()
+        let sut = makeSUT()
         
         let jobs = [
             [
@@ -80,5 +80,11 @@ final class OptimalFreelancing: XCTestCase {
         let result = sut.calculateOptimal(jobs)
         
         XCTAssertEqual(result, 5)
+    }
+    
+    // MARK: - Helpers
+    
+    private func makeSUT() -> OptimalFreelancingEngine {
+        OptimalFreelancingEngine()
     }
 }
