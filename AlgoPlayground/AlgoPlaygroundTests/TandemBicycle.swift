@@ -34,8 +34,24 @@
 import XCTest
 
 class TandemBicycleEngine {
-    func calculate() -> Bool {
-        true
+    func calculate(redRiders: inout [Int], blueRiders: inout [Int], fastest: Bool) -> Int {
+        var result = 0
+        
+        redRiders.sort(by: >)
+        blueRiders.sort(by: >)
+        
+        if !fastest {
+            redRiders.sort(by: <)
+        }
+        
+        for idx in redRiders.indices {
+            var rider1 = redRiders[idx]
+            var rider2 = blueRiders[blueRiders.count - idx - 1]
+            
+            result += max(rider1, rider2)
+        }
+        
+        return result
     }
 }
 
