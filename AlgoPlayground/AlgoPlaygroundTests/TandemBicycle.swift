@@ -59,6 +59,10 @@ final class TandemBicycle: XCTestCase {
     func test_tandemBicycle_returns() {
         let sut = TandemBicycleEngine()
         
-        XCTAssertEqual(sut.calculate(), true)
+        var redShirtSpeeds = [1, 2, 1, 9, 12, 3]
+        var blueShirtSpeeds = [3, 3, 4, 6, 1, 2]
+        var fastest = false
+        
+        XCTAssertEqual(sut.calculate(redRiders: &redShirtSpeeds, blueRiders: &blueShirtSpeeds, fastest: fastest), 30)
     }
 }
