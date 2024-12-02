@@ -20,16 +20,56 @@
 
 import XCTest
 
+//class BinaryTree {
+//    var value: Int
+//    var left: BinaryTree?
+//    var right: BinaryTree?
+//
+//    init(value: Int) {
+//        self.value = value
+//    }
+//}
+
 class NodeDepthsEngine {
-    func calculate() -> Bool {
-        true
+    func nodeDepths(_ root: TreeNode?, _ depth: Int = 0) -> Int {
+        guard let root else { return 0 }
+        
+        return depth + nodeDepths(root.left, depth + 1) + nodeDepths(root.right, depth + 1)
     }
 }
 
 final class NodeDepths: XCTestCase {
     func test_nodeDepthsEngine_firstTestReturnsTrue() {
         let sut = NodeDepthsEngine()
+        let root = makeRootNode1()
         
-        XCTAssertEqual(sut.calculate(), true)
+        let result = sut.nodeDepths(root)
+        
+               
+        XCTAssertEqual(result, 16)
+    }
+    
+    // MARK: - Helpers
+    
+    private func makeRootNode1() -> TreeNode {
+        //         1
+        //       /   \
+        //      2     3
+        //     / \   / \
+        //    4   5 6   7
+        //   / \
+        //  8   9
+        
+        let node9 = TreeNode(id: "9", value: 9)
+        let node7 = TreeNode(id: "7", value: 7)
+        let node6 = TreeNode(id: "6", value: 6)
+        let node8 = TreeNode(id: "8", value: 8)
+        let node4 = TreeNode(id: "4", value: 4, left: node8, right: node9)
+        let node5 = TreeNode(id: "5", value: 5)
+        let node2 = TreeNode(id: "2", value: 2, left: node4, right: node5)
+        let node3 = TreeNode(id: "3", value: 3, left: node6, right: node7)
+        let rootNode = TreeNode(id: "1", value: 1, left: node2, right: node3)
+        
+        return rootNode
     }
 }
