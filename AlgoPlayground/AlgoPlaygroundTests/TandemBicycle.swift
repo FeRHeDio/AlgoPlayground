@@ -35,6 +35,7 @@ import XCTest
 
 class TandemBicycleEngine {
     
+    // MARK: - O(n.log(n)) Time - O(1) Space
     
     func calculate(redRiders: inout [Int], blueRiders: inout [Int], fastest: Bool) -> Int {
         var result = 0
