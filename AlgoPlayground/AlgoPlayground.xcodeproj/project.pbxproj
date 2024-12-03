@@ -98,7 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				76C61F622CDFFE4700B2AE31 /* AlgoPlayground.h */,
-				766148242CFD412000D25C99 /* NodeDepths.swift */,
 			);
 			path = AlgoPlayground;
 			sourceTree = "<group>";
@@ -106,6 +105,7 @@
 		76C61F6B2CDFFE4700B2AE31 /* AlgoPlaygroundTests */ = {
 			isa = PBXGroup;
 			children = (
+				766148242CFD412000D25C99 /* NodeDepths.swift */,
 				76C61F792CDFFF5000B2AE31 /* BinarySearch.swift */,
 				76C61F7B2CE224AE00B2AE31 /* QuickSort.swift */,
 				76F664BA2CFB51AD00356E05 /* TandemBicycle.swift */,
