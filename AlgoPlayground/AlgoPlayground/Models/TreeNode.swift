@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - Common Binary Tree model.
+
 class TreeNode {
     let id: String
     var value: Int
