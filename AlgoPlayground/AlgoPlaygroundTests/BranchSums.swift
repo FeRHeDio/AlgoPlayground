@@ -17,21 +17,7 @@
  */
 
 import XCTest
-
-class TreeNode {
-    let id: String
-    var value: Int
-    var left: TreeNode?
-    var right: TreeNode?
-    
-    init(id: String, value: Int, left: TreeNode? = nil, right: TreeNode? = nil) {
-        self.id = id
-        self.value = value
-        self.left = left
-        self.right = right
-    }
-}
-
+@testable import AlgoPlayground
 
 // MARK: - O(n) Time - O(N) Space
 

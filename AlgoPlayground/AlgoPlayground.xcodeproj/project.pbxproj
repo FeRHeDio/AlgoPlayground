@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7614C0DD2CE2FC1A005F0F99 /* PalindromeChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7614C0DC2CE2FC1A005F0F99 /* PalindromeChecker.swift */; };
 		7618A0E22CEB7F3D00E64E44 /* LinkedListRemoveDuplicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7618A0E12CEB7F3D00E64E44 /* LinkedListRemoveDuplicate.swift */; };
+		761FA2C12CFF1D3200D8B054 /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761FA2C02CFF1D3200D8B054 /* TreeNode.swift */; };
 		7623932A2CF5F77B00F98205 /* MinimumWaitingTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762393292CF5F77B00F98205 /* MinimumWaitingTime.swift */; };
 		764974662CE779030062B5FF /* DepthFirstSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764974652CE779030062B5FF /* DepthFirstSearch.swift */; };
 		766148252CFD412000D25C99 /* NodeDepths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766148242CFD412000D25C99 /* NodeDepths.swift */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		7614C0DC2CE2FC1A005F0F99 /* PalindromeChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PalindromeChecker.swift; sourceTree = "<group>"; };
 		7618A0E12CEB7F3D00E64E44 /* LinkedListRemoveDuplicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedListRemoveDuplicate.swift; sourceTree = "<group>"; };
+		761FA2C02CFF1D3200D8B054 /* TreeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeNode.swift; sourceTree = "<group>"; };
 		762393292CF5F77B00F98205 /* MinimumWaitingTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimumWaitingTime.swift; sourceTree = "<group>"; };
 		764974652CE779030062B5FF /* DepthFirstSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepthFirstSearch.swift; sourceTree = "<group>"; };
 		766148242CFD412000D25C99 /* NodeDepths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDepths.swift; sourceTree = "<group>"; };
@@ -76,6 +78,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		761FA2BF2CFF1D1A00D8B054 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				761FA2C02CFF1D3200D8B054 /* TreeNode.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		76C61F552CDFFE4700B2AE31 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +107,7 @@
 		76C61F612CDFFE4700B2AE31 /* AlgoPlayground */ = {
 			isa = PBXGroup;
 			children = (
+				761FA2BF2CFF1D1A00D8B054 /* Models */,
 				76C61F622CDFFE4700B2AE31 /* AlgoPlayground.h */,
 			);
 			path = AlgoPlayground;
@@ -186,6 +197,7 @@
 				TargetAttributes = {
 					76C61F5E2CDFFE4700B2AE31 = {
 						CreatedOnToolsVersion = 15.4;
+						LastSwiftMigration = 1540;
 					};
 					76C61F662CDFFE4700B2AE31 = {
 						CreatedOnToolsVersion = 15.4;
@@ -233,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				761FA2C12CFF1D3200D8B054 /* TreeNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +411,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -422,6 +436,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -431,6 +446,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -463,6 +479,7 @@
 		76C61F752CDFFE4700B2AE31 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F342975UV4;
@@ -479,6 +496,7 @@
 		76C61F762CDFFE4700B2AE31 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F342975UV4;
