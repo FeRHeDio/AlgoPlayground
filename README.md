@@ -3,7 +3,7 @@
 
 As a way of practicing Algorithms and Datastructures using Swift I'll be populating this repo daily.
 
-### Current problems 15 _and counting_: _history
+### Current problems 15 _and counting_
 
 #### Strings
 - Palindrome Checker
@@ -44,6 +44,7 @@ Every problem includes:
 - A Prompt for the problem to solve at the top of each `test file`
 - The implementation of the solution.
 - `Big O notation` - Complexity Analysis for each problem
+- Set of basic tests to verify the validity of the implementation. Aways in green state.
 
 ## Installation
 
