@@ -5,7 +5,6 @@ As a way of practicing Algorithms and Datastructures using Swift I'll be populat
 
 ## Current problems 15 _and counting_
 
---
 #### Strings
 - Palindrome Checker
 
@@ -39,7 +38,6 @@ As a way of practicing Algorithms and Datastructures using Swift I'll be populat
 #### Arrays
 - Two Number Sum
 
---
 ## Features
 Every problem includes:
 
