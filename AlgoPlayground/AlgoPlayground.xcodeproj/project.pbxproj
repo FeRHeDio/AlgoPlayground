@@ -86,6 +86,84 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		761FA2C22CFF201600D8B054 /* Arrays */ = {
+			isa = PBXGroup;
+			children = (
+				7695B97A2CE61CCD00336050 /* TwoNumberSum.swift */,
+			);
+			path = Arrays;
+			sourceTree = "<group>";
+		};
+		761FA2C32CFF20E900D8B054 /* Recursion */ = {
+			isa = PBXGroup;
+			children = (
+				76E48F032CF88DC4004F8E7F /* ProductSum.swift */,
+				76BEEB312CF0B7D400C97275 /* Fibonacci.swift */,
+			);
+			path = Recursion;
+			sourceTree = "<group>";
+		};
+		761FA2C42CFF211600D8B054 /* LinkedLists */ = {
+			isa = PBXGroup;
+			children = (
+				7618A0E12CEB7F3D00E64E44 /* LinkedListRemoveDuplicate.swift */,
+			);
+			path = LinkedLists;
+			sourceTree = "<group>";
+		};
+		761FA2C52CFF215300D8B054 /* Sorting */ = {
+			isa = PBXGroup;
+			children = (
+				76C61F7B2CE224AE00B2AE31 /* QuickSort.swift */,
+				76A3F8E22CF69C0B00833BFB /* InsertionSort.swift */,
+			);
+			path = Sorting;
+			sourceTree = "<group>";
+		};
+		761FA2C62CFF217F00D8B054 /* Searching */ = {
+			isa = PBXGroup;
+			children = (
+				76C61F792CDFFF5000B2AE31 /* BinarySearch.swift */,
+			);
+			path = Searching;
+			sourceTree = "<group>";
+		};
+		761FA2C72CFF21B200D8B054 /* Greedy */ = {
+			isa = PBXGroup;
+			children = (
+				76F664BA2CFB51AD00356E05 /* TandemBicycle.swift */,
+				767CE11C2CF94F96007B8B75 /* OptimalFreelancing.swift */,
+				76824BD12CF411A500985AD2 /* ClassPhoto.swift */,
+				762393292CF5F77B00F98205 /* MinimumWaitingTime.swift */,
+			);
+			path = Greedy;
+			sourceTree = "<group>";
+		};
+		761FA2C82CFF21EE00D8B054 /* Graphs */ = {
+			isa = PBXGroup;
+			children = (
+				764974652CE779030062B5FF /* DepthFirstSearch.swift */,
+			);
+			path = Graphs;
+			sourceTree = "<group>";
+		};
+		761FA2C92CFF220D00D8B054 /* BinaryTrees */ = {
+			isa = PBXGroup;
+			children = (
+				766148242CFD412000D25C99 /* NodeDepths.swift */,
+				76E4DC572CEE1CBD00C4F4D7 /* BranchSums.swift */,
+			);
+			path = BinaryTrees;
+			sourceTree = "<group>";
+		};
+		761FA2CA2CFF222C00D8B054 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				7614C0DC2CE2FC1A005F0F99 /* PalindromeChecker.swift */,
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
 		76C61F552CDFFE4700B2AE31 = {
 			isa = PBXGroup;
 			children = (
@@ -116,21 +194,15 @@
 		76C61F6B2CDFFE4700B2AE31 /* AlgoPlaygroundTests */ = {
 			isa = PBXGroup;
 			children = (
-				766148242CFD412000D25C99 /* NodeDepths.swift */,
-				76C61F792CDFFF5000B2AE31 /* BinarySearch.swift */,
-				76C61F7B2CE224AE00B2AE31 /* QuickSort.swift */,
-				76F664BA2CFB51AD00356E05 /* TandemBicycle.swift */,
-				7614C0DC2CE2FC1A005F0F99 /* PalindromeChecker.swift */,
-				7695B97A2CE61CCD00336050 /* TwoNumberSum.swift */,
-				764974652CE779030062B5FF /* DepthFirstSearch.swift */,
-				7618A0E12CEB7F3D00E64E44 /* LinkedListRemoveDuplicate.swift */,
-				76E4DC572CEE1CBD00C4F4D7 /* BranchSums.swift */,
-				76A3F8E22CF69C0B00833BFB /* InsertionSort.swift */,
-				76BEEB312CF0B7D400C97275 /* Fibonacci.swift */,
-				76824BD12CF411A500985AD2 /* ClassPhoto.swift */,
-				762393292CF5F77B00F98205 /* MinimumWaitingTime.swift */,
-				76E48F032CF88DC4004F8E7F /* ProductSum.swift */,
-				767CE11C2CF94F96007B8B75 /* OptimalFreelancing.swift */,
+				761FA2CA2CFF222C00D8B054 /* Strings */,
+				761FA2C92CFF220D00D8B054 /* BinaryTrees */,
+				761FA2C82CFF21EE00D8B054 /* Graphs */,
+				761FA2C72CFF21B200D8B054 /* Greedy */,
+				761FA2C62CFF217F00D8B054 /* Searching */,
+				761FA2C52CFF215300D8B054 /* Sorting */,
+				761FA2C42CFF211600D8B054 /* LinkedLists */,
+				761FA2C32CFF20E900D8B054 /* Recursion */,
+				761FA2C22CFF201600D8B054 /* Arrays */,
 			);
 			path = AlgoPlaygroundTests;
 			sourceTree = "<group>";
