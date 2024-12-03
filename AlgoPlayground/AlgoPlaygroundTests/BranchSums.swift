@@ -21,7 +21,7 @@ import XCTest
 
 // MARK: - O(n) Time - O(N) Space
 
-extension TreeNode {
+class BranchSumsEngine {
     func branchSums(root: TreeNode) -> [Int] {
         var sums = [Int]()
         calculateBranchSums(node: root, runningSum: 0, sums: &sums)
@@ -50,7 +50,7 @@ extension TreeNode {
 final class BranchSums: XCTestCase {
     func test_binaryTree_calculateSums() {
         let root = makeFirstTree()
-        let sut = TreeNode(id: root.id, value: root.value)
+        let sut = BranchSumsEngine()
         
         let result = sut.branchSums(root: root)
         let expectedResult = [15, 16, 8, 10, 11]
