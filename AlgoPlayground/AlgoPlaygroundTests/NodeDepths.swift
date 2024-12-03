@@ -19,6 +19,7 @@
  */
 
 import XCTest
+@testable import AlgoPlayground
 
 class NodeDepthsEngine {
     func nodeDepths(_ root: TreeNode?, _ depth: Int = 0) -> Int {
