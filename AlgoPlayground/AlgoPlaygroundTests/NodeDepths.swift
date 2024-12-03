@@ -31,7 +31,7 @@ class NodeDepthsEngine {
 
 final class NodeDepths: XCTestCase {
     func test_nodeDepthsEngine_firstTestReturns16() {
-        let sut = NodeDepthsEngine()
+        let sut = makeSUT()
         let root = makeRootNode1()
         
         let result = sut.nodeDepths(root)
@@ -41,7 +41,7 @@ final class NodeDepths: XCTestCase {
     }
     
     func test_nodeDepthsEngine_firstTestReturns10() {
-        let sut = NodeDepthsEngine()
+        let sut = makeSUT()
         let root = makeRootNode2()
         
         let result = sut.nodeDepths(root)
@@ -51,6 +51,10 @@ final class NodeDepths: XCTestCase {
     }
     
     // MARK: - Helpers
+    
+    private func makeSUT() -> NodeDepthsEngine {
+        NodeDepthsEngine()
+    }
     
     private func makeRootNode1() -> TreeNode {
         //         1
