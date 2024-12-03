@@ -50,7 +50,7 @@ class BranchSumsEngine {
 final class BranchSums: XCTestCase {
     func test_binaryTree_calculateSums() {
         let root = makeFirstTree()
-        let sut = BranchSumsEngine()
+        let sut = makeSUT()
         
         let result = sut.branchSums(root: root)
         let expectedResult = [15, 16, 8, 10, 11]
@@ -60,6 +60,10 @@ final class BranchSums: XCTestCase {
     
     
     // MARK: - Helpers
+    
+    private func makeSUT() -> BranchSumsEngine {
+        BranchSumsEngine()
+    }
     
     private func makeFirstTree() -> TreeNode {
         //         1
