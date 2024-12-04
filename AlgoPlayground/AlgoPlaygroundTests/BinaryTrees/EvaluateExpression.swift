@@ -27,9 +27,26 @@ import XCTest
 @testable import AlgoPlayground
 
 class EvaluateExpressionEngine {
-    func evaluate(root: TreeNode) -> Int {
-        // not implemented yet
-        0
+    func evaluate(_ tree: TreeNode) -> Int {
+        if tree.value >= 0 {
+            return tree.value
+        }
+        
+        let leftValue = evaluate(tree.left!)
+        let rightValue = evaluate(tree.right!)
+        
+        switch tree.value {
+            case -1:
+                return leftValue + rightValue
+                
+            case -2:
+                return leftValue - rightValue
+                
+            case -3:
+                return leftValue / rightValue
+            
+            default: return leftValue * rightValue
+        }
     }
 }
 
@@ -38,9 +55,9 @@ final class EvaluateExpression: XCTestCase {
         let sut = EvaluateExpressionEngine()
         
         let rootNode = makeTree()
-        let result = sut.evaluate(root: rootNode)
+        let result = sut.evaluate(rootNode)
         
-        XCTAssertEqual(result, 0)
+        XCTAssertEqual(result, 6)
     }
     
     // MARK: - Helpers
