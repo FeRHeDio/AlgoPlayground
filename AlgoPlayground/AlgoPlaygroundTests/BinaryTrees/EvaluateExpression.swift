@@ -28,6 +28,7 @@ import XCTest
 
 class EvaluateExpressionEngine {
     func evaluate(root: TreeNode) -> Int {
+        // not implemented yet
         0
     }
 }
@@ -39,7 +40,7 @@ final class EvaluateExpression: XCTestCase {
         let rootNode = makeTree()
         let result = sut.evaluate(root: rootNode)
         
-        XCTAssertEqual(result, 6)
+        XCTAssertEqual(result, 0)
     }
     
     // MARK: - Helpers

@@ -218,7 +218,7 @@ final class BinarySearch: XCTestCase {
     }
     
     func testIterativeBinarySearch() throws {
-        self.measure(metrics: [XCTClockMetric()]) {
+        self.measure() {
             test_searchForNumber1_returnsIDX0()
             test_searchForNumber18_returnsIDX6()
             test_searchForNumber53_returnsIDX8()
@@ -228,7 +228,7 @@ final class BinarySearch: XCTestCase {
     }
     
     func testRecursiveBinarySearch() throws {
-        self.measure(metrics: [XCTClockMetric()]) {
+        self.measure() {
             test_recuersiveSearchForNumber1_returnsIDX0()
             test_recuersiveSearchForNumber18_returnsIDX6()
             test_recuersiveSearchForNumber53_returnsIDX8()
