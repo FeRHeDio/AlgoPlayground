@@ -3,7 +3,7 @@
 
 As a way of practicing Algorithms and Datastructures using Swift I'll be populating this repo daily.
 
-### Current problems 15 _and counting_
+### Current problems: `16`.. _and counting_
 
 #### Strings
 - Palindrome Checker
@@ -11,6 +11,7 @@ As a way of practicing Algorithms and Datastructures using Swift I'll be populat
 #### Binary Trees
 - Node Depths
 - Branch Sums
+- Evaluate Expression
 
 #### Graphs
 - Depth First Search
