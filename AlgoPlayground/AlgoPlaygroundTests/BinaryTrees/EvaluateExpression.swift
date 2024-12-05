@@ -67,6 +67,16 @@ final class EvaluateExpression: XCTestCase {
         XCTAssertEqual(sut.evaluate(tree), 33)
     }
     
+    func test_evaluateExpression_returnsAddition() {
+        let sut = makeSUT()
+        
+        let node3 = TreeNode(id: "3", value: 3)
+        let node2 = TreeNode(id: "2", value: 2)
+        let tree = TreeNode(id: "1", value: -1, left: node2, right: node3)
+        
+        XCTAssertEqual(sut.evaluate(tree), 5)
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT() -> EvaluateExpressionEngine {
