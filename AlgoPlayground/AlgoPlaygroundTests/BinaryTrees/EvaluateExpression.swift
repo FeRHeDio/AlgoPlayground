@@ -56,7 +56,7 @@ class EvaluateExpressionEngine {
 }
 
 final class EvaluateExpression: XCTestCase {
-    func test_evaluateExpressionEnginge_returnsTrue() {
+    func test_evaluateExpressionEnginge_returnsSix() {
         let sut = makeSUT()
         
         let rootNode = makeTree()
