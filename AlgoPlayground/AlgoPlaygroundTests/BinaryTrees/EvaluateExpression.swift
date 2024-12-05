@@ -67,7 +67,7 @@ final class EvaluateExpression: XCTestCase {
     
     func test_evaluateExpression_returnsSingleLeafNode() {
         let sut = makeSUT()
-        let tree = TreeNode(id: "1", value: 33)
+        let tree = TreeNode(value: 33)
         
         XCTAssertEqual(sut.evaluate(tree), 33)
     }
@@ -75,9 +75,9 @@ final class EvaluateExpression: XCTestCase {
     func test_evaluateExpression_returnsAddition() {
         let sut = makeSUT()
         
-        let node3 = TreeNode(id: "3", value: 3)
-        let node2 = TreeNode(id: "2", value: 2)
-        let tree = TreeNode(id: "1", value: -1, left: node2, right: node3)
+        let node3 = TreeNode(value: 3)
+        let node2 = TreeNode(value: 2)
+        let tree = TreeNode(value: -1, left: node2, right: node3)
         
         XCTAssertEqual(sut.evaluate(tree), 5)
     }
@@ -85,9 +85,9 @@ final class EvaluateExpression: XCTestCase {
     func test_evaluateExpression_returnsSubtraction() {
         let sut = makeSUT()
         
-        let node3 = TreeNode(id: "3", value: 3)
-        let node2 = TreeNode(id: "2", value: 10)
-        let tree = TreeNode(id: "1", value: -2, left: node2, right: node3)
+        let node3 = TreeNode(value: 3)
+        let node2 = TreeNode(value: 10)
+        let tree = TreeNode(value: -2, left: node2, right: node3)
         
         XCTAssertEqual(sut.evaluate(tree), 7)
     }
@@ -95,9 +95,9 @@ final class EvaluateExpression: XCTestCase {
     func test_evaluateExpression_returnsDivision() {
         let sut = makeSUT()
         
-        let node3 = TreeNode(id: "3", value: 2)
-        let node2 = TreeNode(id: "2", value: 10)
-        let tree = TreeNode(id: "1", value: -3, left: node2, right: node3)
+        let node3 = TreeNode(value: 2)
+        let node2 = TreeNode(value: 10)
+        let tree = TreeNode(value: -3, left: node2, right: node3)
         
         XCTAssertEqual(sut.evaluate(tree), 5)
     }
@@ -105,9 +105,9 @@ final class EvaluateExpression: XCTestCase {
     func test_evaluateExpression_returnsDivisionRounded() {
         let sut = makeSUT()
         
-        let node3 = TreeNode(id: "3", value: 2)
-        let node2 = TreeNode(id: "2", value: 11)
-        let tree = TreeNode(id: "1", value: -3, left: node2, right: node3)
+        let node3 = TreeNode(value: 2)
+        let node2 = TreeNode(value: 11)
+        let tree = TreeNode(value: -3, left: node2, right: node3)
         
         XCTAssertEqual(sut.evaluate(tree), 5)
     }
@@ -115,9 +115,9 @@ final class EvaluateExpression: XCTestCase {
     func test_evaluateExpression_returnsDivisionByZeroThrows() {
         let sut = makeSUT()
         
-        let node3 = TreeNode(id: "3", value: 0)
-        let node2 = TreeNode(id: "2", value: 10)
-        let tree = TreeNode(id: "1", value: -3, left: node2, right: node3)
+        let node3 = TreeNode(value: 0)
+        let node2 = TreeNode(value: 10)
+        let tree = TreeNode(value: -3, left: node2, right: node3)
         
         XCTAssertEqual(sut.evaluate(tree), 0)
     }
@@ -125,9 +125,9 @@ final class EvaluateExpression: XCTestCase {
     func test_evaluateExpression_returnsMultiplication() {
         let sut = makeSUT()
         
-        let node3 = TreeNode(id: "3", value: 2)
-        let node2 = TreeNode(id: "2", value: 11)
-        let tree = TreeNode(id: "1", value: -4, left: node2, right: node3)
+        let node3 = TreeNode(value: 2)
+        let node2 = TreeNode(value: 11)
+        let tree = TreeNode(value: -4, left: node2, right: node3)
         
         XCTAssertEqual(sut.evaluate(tree), 22)
     }
@@ -147,15 +147,15 @@ final class EvaluateExpression: XCTestCase {
         //   / \
         //  2   3
         
-        let node9 = TreeNode(id: "9", value: 3)
-        let node8 = TreeNode(id: "8", value: 2)
-        let node5 = TreeNode(id: "5", value: 2)
-        let node4 = TreeNode(id: "4", value: -4, left: node8, right: node9)
-        let node7 = TreeNode(id: "7", value: 3)
-        let node6 = TreeNode(id: "6", value: 8)
-        let node2 = TreeNode(id: "2", value: -2, left: node4, right: node5)
-        let node3 = TreeNode(id: "3", value: -3, left: node6, right: node7)
-        let rootNode = TreeNode(id: "1", value: -1, left: node2, right: node3)
+        let node9 = TreeNode(value: 3)
+        let node8 = TreeNode(value: 2)
+        let node5 = TreeNode(value: 2)
+        let node4 = TreeNode(value: -4, left: node8, right: node9)
+        let node7 = TreeNode(value: 3)
+        let node6 = TreeNode(value: 8)
+        let node2 = TreeNode(value: -2, left: node4, right: node5)
+        let node3 = TreeNode(value: -3, left: node6, right: node7)
+        let rootNode = TreeNode(value: -1, left: node2, right: node3)
         
         return rootNode
     }
