@@ -52,7 +52,7 @@ class EvaluateExpressionEngine {
 
 final class EvaluateExpression: XCTestCase {
     func test_evaluateExpressionEnginge_returnsTrue() {
-        let sut = EvaluateExpressionEngine()
+        let sut = makeSUT()
         
         let rootNode = makeTree()
         let result = sut.evaluate(rootNode)
@@ -61,13 +61,17 @@ final class EvaluateExpression: XCTestCase {
     }
     
     func test_evaluateExpression_returnsSingleLeafNode() {
-        let sut = EvaluateExpressionEngine()
+        let sut = makeSUT()
         let tree = TreeNode(id: "1", value: 33)
         
         XCTAssertEqual(sut.evaluate(tree), 33)
     }
     
     // MARK: - Helpers
+    
+    private func makeSUT() -> EvaluateExpressionEngine {
+        EvaluateExpressionEngine()
+    }
     
     private func makeTree() -> TreeNode {
         //        -1
