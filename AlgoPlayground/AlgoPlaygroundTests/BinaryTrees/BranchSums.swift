@@ -22,14 +22,14 @@ import XCTest
 // MARK: - O(n) Time - O(N) Space
 
 class BranchSumsEngine {
-    func branchSums(root: TreeNode) -> [Int] {
+    func branchSums(root: BinaryTree) -> [Int] {
         var sums = [Int]()
         calculateBranchSums(node: root, runningSum: 0, sums: &sums)
         
         return sums
     }
     
-    func calculateBranchSums(node: TreeNode, runningSum: Int, sums: inout [Int]) {
+    func calculateBranchSums(node: BinaryTree, runningSum: Int, sums: inout [Int]) {
         let newRunningSum = runningSum + node.value
         
         if node.left == nil && node.right == nil {
@@ -65,7 +65,7 @@ final class BranchSums: XCTestCase {
         BranchSumsEngine()
     }
     
-    private func makeFirstTree() -> TreeNode {
+    private func makeFirstTree() -> BinaryTree {
         //         1
         //       /   \
         //      2     3
@@ -74,15 +74,15 @@ final class BranchSums: XCTestCase {
         //   / \
         //  8   9
         
-        let node9 = TreeNode(value: 9)
-        let node7 = TreeNode(value: 7)
-        let node6 = TreeNode(value: 6)
-        let node8 = TreeNode(value: 8)
-        let node4 = TreeNode(value: 4, left: node8, right: node9)
-        let node5 = TreeNode(value: 5)
-        let node2 = TreeNode(value: 2, left: node4, right: node5)
-        let node3 = TreeNode(value: 3, left: node6, right: node7)
-        let rootNode = TreeNode(value: 1, left: node2, right: node3)
+        let node9 = BinaryTree(value: 9)
+        let node7 = BinaryTree(value: 7)
+        let node6 = BinaryTree(value: 6)
+        let node8 = BinaryTree(value: 8)
+        let node4 = BinaryTree(value: 4, left: node8, right: node9)
+        let node5 = BinaryTree(value: 5)
+        let node2 = BinaryTree(value: 2, left: node4, right: node5)
+        let node3 = BinaryTree(value: 3, left: node6, right: node7)
+        let rootNode = BinaryTree(value: 1, left: node2, right: node3)
         
         return rootNode
     }

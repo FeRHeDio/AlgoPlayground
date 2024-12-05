@@ -9,12 +9,12 @@ import Foundation
 
 // MARK: - Common Binary Tree model.
 
-class TreeNode {
+class BinaryTree {
     var value: Int
-    var left: TreeNode?
-    var right: TreeNode?
+    var left: BinaryTree?
+    var right: BinaryTree?
     
-    init(value: Int, left: TreeNode? = nil, right: TreeNode? = nil) {
+    init(value: Int, left: BinaryTree? = nil, right: BinaryTree? = nil) {
         self.value = value
         self.left = left
         self.right = right

@@ -22,7 +22,7 @@ import XCTest
 @testable import AlgoPlayground
 
 class NodeDepthsEngine {
-    func nodeDepths(_ root: TreeNode?, _ depth: Int = 0) -> Int {
+    func nodeDepths(_ root: BinaryTree?, _ depth: Int = 0) -> Int {
         guard let root else { return 0 }
         
         return depth + nodeDepths(root.left, depth + 1) + nodeDepths(root.right, depth + 1)
@@ -56,7 +56,7 @@ final class NodeDepths: XCTestCase {
         NodeDepthsEngine()
     }
     
-    private func makeRootNode1() -> TreeNode {
+    private func makeRootNode1() -> BinaryTree {
         //         1
         //       /   \
         //      2     3
@@ -65,33 +65,33 @@ final class NodeDepths: XCTestCase {
         //   / \
         //  8   9
         
-        let node9 = TreeNode(value: 9)
-        let node7 = TreeNode(value: 7)
-        let node6 = TreeNode(value: 6)
-        let node8 = TreeNode(value: 8)
-        let node4 = TreeNode(value: 4, left: node8, right: node9)
-        let node5 = TreeNode(value: 5)
-        let node2 = TreeNode(value: 2, left: node4, right: node5)
-        let node3 = TreeNode(value: 3, left: node6, right: node7)
-        let rootNode = TreeNode(value: 1, left: node2, right: node3)
+        let node9 = BinaryTree(value: 9)
+        let node7 = BinaryTree(value: 7)
+        let node6 = BinaryTree(value: 6)
+        let node8 = BinaryTree(value: 8)
+        let node4 = BinaryTree(value: 4, left: node8, right: node9)
+        let node5 = BinaryTree(value: 5)
+        let node2 = BinaryTree(value: 2, left: node4, right: node5)
+        let node3 = BinaryTree(value: 3, left: node6, right: node7)
+        let rootNode = BinaryTree(value: 1, left: node2, right: node3)
         
         return rootNode
     }
     
-    private func makeRootNode2() -> TreeNode {
+    private func makeRootNode2() -> BinaryTree {
         //         1
         //       /   \
         //      2     3
         //     / \   / \
         //    4   5 6   7
         
-        let node7 = TreeNode(value: 7)
-        let node6 = TreeNode(value: 6)
-        let node4 = TreeNode(value: 4)
-        let node5 = TreeNode(value: 5)
-        let node2 = TreeNode(value: 2, left: node4, right: node5)
-        let node3 = TreeNode(value: 3, left: node6, right: node7)
-        let rootNode = TreeNode(value: 1, left: node2, right: node3)
+        let node7 = BinaryTree(value: 7)
+        let node6 = BinaryTree(value: 6)
+        let node4 = BinaryTree(value: 4)
+        let node5 = BinaryTree(value: 5)
+        let node2 = BinaryTree(value: 2, left: node4, right: node5)
+        let node3 = BinaryTree(value: 3, left: node6, right: node7)
+        let rootNode = BinaryTree(value: 1, left: node2, right: node3)
         
         return rootNode
     }
