@@ -26,6 +26,7 @@
 		76C61F7C2CE224AE00B2AE31 /* QuickSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C61F7B2CE224AE00B2AE31 /* QuickSort.swift */; };
 		76E48F042CF88DC4004F8E7F /* ProductSum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E48F032CF88DC4004F8E7F /* ProductSum.swift */; };
 		76E4DC582CEE1CBD00C4F4D7 /* BranchSums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E4DC572CEE1CBD00C4F4D7 /* BranchSums.swift */; };
+		76E8848B2D01CE5E00B2D886 /* CaesarCipherEncryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E8848A2D01CE5E00B2D886 /* CaesarCipherEncryptor.swift */; };
 		76F664BB2CFB51AD00356E05 /* TandemBicycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F664BA2CFB51AD00356E05 /* TandemBicycle.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		76C61F7B2CE224AE00B2AE31 /* QuickSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSort.swift; sourceTree = "<group>"; };
 		76E48F032CF88DC4004F8E7F /* ProductSum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSum.swift; sourceTree = "<group>"; };
 		76E4DC572CEE1CBD00C4F4D7 /* BranchSums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchSums.swift; sourceTree = "<group>"; };
+		76E8848A2D01CE5E00B2D886 /* CaesarCipherEncryptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaesarCipherEncryptor.swift; sourceTree = "<group>"; };
 		76F664BA2CFB51AD00356E05 /* TandemBicycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TandemBicycle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				7614C0DC2CE2FC1A005F0F99 /* PalindromeChecker.swift */,
+				76E8848A2D01CE5E00B2D886 /* CaesarCipherEncryptor.swift */,
 			);
 			path = Strings;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				76824BD22CF411A500985AD2 /* ClassPhoto.swift in Sources */,
 				7695B97B2CE61CCD00336050 /* TwoNumberSum.swift in Sources */,
 				767CE11D2CF94F96007B8B75 /* OptimalFreelancing.swift in Sources */,
+				76E8848B2D01CE5E00B2D886 /* CaesarCipherEncryptor.swift in Sources */,
 				7623932A2CF5F77B00F98205 /* MinimumWaitingTime.swift in Sources */,
 				7618A0E22CEB7F3D00E64E44 /* LinkedListRemoveDuplicate.swift in Sources */,
 				764974662CE779030062B5FF /* DepthFirstSearch.swift in Sources */,
