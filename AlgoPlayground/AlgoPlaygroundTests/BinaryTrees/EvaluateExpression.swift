@@ -62,7 +62,7 @@ final class EvaluateExpression: XCTestCase {
     func test_evaluateExpressionEnginge_returnsSix() {
         let sut = makeSUT()
         
-        let rootNode = makeTree()
+        let rootNode = makeTreeForSix()
         let result = sut.evaluate(rootNode)
         
         XCTAssertEqual(result, 6)
@@ -141,7 +141,7 @@ final class EvaluateExpression: XCTestCase {
         EvaluateExpressionEngine()
     }
     
-    private func makeTree() -> BinaryTree {
+    private func makeTreeForSix() -> BinaryTree {
         //        -1
         //       /   \
         //     -2    -3
