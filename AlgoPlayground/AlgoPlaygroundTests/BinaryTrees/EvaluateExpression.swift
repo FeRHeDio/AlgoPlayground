@@ -60,6 +60,13 @@ final class EvaluateExpression: XCTestCase {
         XCTAssertEqual(result, 6)
     }
     
+    func test_evaluateExpression_returnsSingleLeafNode() {
+        let sut = EvaluateExpressionEngine()
+        let tree = TreeNode(id: "1", value: 33)
+        
+        XCTAssertEqual(sut.evaluate(tree), 33)
+    }
+    
     // MARK: - Helpers
     
     private func makeTree() -> TreeNode {
