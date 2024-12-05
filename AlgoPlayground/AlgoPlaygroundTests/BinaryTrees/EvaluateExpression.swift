@@ -27,6 +27,9 @@ import XCTest
 @testable import AlgoPlayground
 
 class EvaluateExpressionEngine {
+    
+    // MARK: O(n) Time - O(h) Space, where h is the height of the tree.
+    
     func evaluate(_ tree: BinaryTree) -> Int {
         if tree.value >= 0 {
             return tree.value
