@@ -43,8 +43,13 @@ class EvaluateExpressionEngine {
                 return leftValue - rightValue
                 
             case -3:
-                return leftValue / rightValue
             
+                if rightValue == 0 {  // division by zero
+                    return 0
+                } else {
+                    return leftValue / rightValue
+                }
+                
             default: return leftValue * rightValue
         }
     }
