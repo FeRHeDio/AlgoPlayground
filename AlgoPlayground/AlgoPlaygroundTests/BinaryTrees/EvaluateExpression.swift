@@ -28,7 +28,7 @@ import XCTest
 
 class EvaluateExpressionEngine {
     
-    // MARK: O(n) Time - O(h) Space, where h is the height of the tree.
+    // MARK: O(n) Time - O(h) Space, where n is the number of nodes in the tree and h is the height of the tree.
     
     func evaluate(_ tree: BinaryTree) -> Int {
         if tree.value >= 0 {
