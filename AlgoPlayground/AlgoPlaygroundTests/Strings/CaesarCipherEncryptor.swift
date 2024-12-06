@@ -20,15 +20,16 @@
 import XCTest
 
 class CaesarCipher {
-    func encrypt() -> Bool {
-        true
+    func normalizeKey(_ key: Int) -> Int {
+        key % 26
     }
 }
 
 final class CaesarCipherEncryptor: XCTestCase {
-    func test_caesarCipher_returnsTrue() {
+    func test_caesarCipher_normalizeKey() {
         let sut = CaesarCipher()
         
-        XCTAssertEqual(sut.encrypt(), true)
+        XCTAssertEqual(sut.normalizeKey(28), 2, "Failed to normalize key, 2 expected but received")
+        XCTAssertEqual(sut.normalizeKey(52), 0, "Failed to handle full rotations")
     }
 }
