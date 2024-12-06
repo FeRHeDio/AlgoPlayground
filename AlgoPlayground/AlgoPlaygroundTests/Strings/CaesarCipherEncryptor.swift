@@ -30,6 +30,13 @@ class CaesarCipher {
         let newLetterCode = (letterIndex + key) % 26
         return alphabet[newLetterCode]
     }
+    
+    func encrypt(_ string: String, _ key: Int) -> String {
+        let normalizedKey = normalizeKey(key)
+        let alphabet = Array("abcdefghijklmnopqrstuvwxyz")
+        
+        return String(string.compactMap { shiftLetter($0, normalizedKey, alphabet) })
+    }
 }
 
 final class CaesarCipherEncryptor: XCTestCase {
@@ -49,4 +56,13 @@ final class CaesarCipherEncryptor: XCTestCase {
         XCTAssertEqual(sut.shiftLetter("z", 2, alphabet), "b", "Failed to shift letter")
         XCTAssertNil(sut.shiftLetter("1", 2, alphabet), "failed to return nil")
     }
+    
+    func test_caesarCipher_returnsBasicString() {
+        let sut = CaesarCipher()
+        let result = sut.encrypt("abc", 2)
+        
+        XCTAssertEqual(result, "cde", "failed to encrypt basic string, expected cde received: \(result)")
+    }
+    
+    
 }
