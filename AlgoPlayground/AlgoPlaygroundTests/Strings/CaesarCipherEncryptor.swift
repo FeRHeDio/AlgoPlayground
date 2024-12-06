@@ -64,5 +64,11 @@ final class CaesarCipherEncryptor: XCTestCase {
         XCTAssertEqual(result, "cde", "failed to encrypt basic string, expected cde received: \(result)")
     }
     
+    func test_caesarCipher_returnsWrappedAround() {
+        let sut = CaesarCipher()
+        let result = sut.encrypt("xyz", 2)
+        
+        XCTAssertEqual(result, "zab", "failed to encrypt basic string, expected zab received: \(result)")
+    }
     
 }
