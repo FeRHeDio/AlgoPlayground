@@ -41,14 +41,14 @@ class CaesarCipher {
 
 final class CaesarCipherEncryptor: XCTestCase {
     func test_caesarCipher_normalizeKey() {
-        let sut = CaesarCipher()
+        let sut = makeSUT()
         
         XCTAssertEqual(sut.normalizeKey(28), 2, "Failed to normalize key, 2 expected but received")
         XCTAssertEqual(sut.normalizeKey(52), 0, "Failed to handle full rotations")
     }
     
     func test_caesarCipher_shiftLetter() {
-        let sut = CaesarCipher()
+        let sut = makeSUT()
         let alphabet = Array("abcdefghijklmnopqrstuvwxyz")
         
         XCTAssertEqual(sut.shiftLetter("a", 2, alphabet), "c", "Failed to shift letter")
@@ -58,17 +58,22 @@ final class CaesarCipherEncryptor: XCTestCase {
     }
     
     func test_caesarCipher_returnsBasicString() {
-        let sut = CaesarCipher()
+        let sut = makeSUT()
         let result = sut.encrypt("abc", 2)
         
         XCTAssertEqual(result, "cde", "failed to encrypt basic string, expected cde received: \(result)")
     }
     
     func test_caesarCipher_returnsWrappedAround() {
-        let sut = CaesarCipher()
+        let sut = makeSUT()
         let result = sut.encrypt("xyz", 2)
         
         XCTAssertEqual(result, "zab", "failed to encrypt basic string, expected zab received: \(result)")
     }
     
+    // MARK: - Helpers
+    
+    private func makeSUT() -> CaesarCipher {
+        CaesarCipher()
+    }
 }
