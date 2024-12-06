@@ -68,7 +68,14 @@ final class CaesarCipherEncryptor: XCTestCase {
         let sut = makeSUT()
         let result = sut.encrypt("xyz", 2)
         
-        XCTAssertEqual(result, "zab", "failed to encrypt basic string, expected zab received: \(result)")
+        XCTAssertEqual(result, "zab", "failed to wrap around, expected zab received: \(result)")
+    }
+    
+    func test_caesarCipher_handleLargeKey() {
+        let sut = makeSUT()
+        let result = sut.encrypt("abc", 28)
+        
+        XCTAssertEqual(result, "cde", "failed to handle large key, expected cde received: \(result)")
     }
     
     // MARK: - Helpers
