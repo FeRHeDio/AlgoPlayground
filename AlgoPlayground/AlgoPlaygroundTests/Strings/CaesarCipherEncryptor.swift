@@ -78,6 +78,13 @@ final class CaesarCipherEncryptor: XCTestCase {
         XCTAssertEqual(result, "cde", "failed to handle large key, expected cde received: \(result)")
     }
     
+    func test_caesarCipher_handlesLargeString() {
+        let sut = makeSUT()
+        let result = sut.encrypt("mvklahvjcnbwqvtutmfafkwiuagjkzmzwgf", 7)
+        
+        XCTAssertEqual(result, "tcrshocqjuidxcabatmhmrdpbhnqrgtgdnm", "Failed to handle large input, expect tcrshocqjuidxcabatmhmrdpbhnqrgtgdnm, received: \(result)")
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT() -> CaesarCipher {
