@@ -23,6 +23,13 @@ class CaesarCipher {
     func normalizeKey(_ key: Int) -> Int {
         key % 26
     }
+    
+    func shiftLetter(_ letter: Character, _ key: Int, _ alphabet: [Character]) -> Character? {
+        guard let letterIndex = alphabet.firstIndex(of: letter) else { return nil }
+        
+        let newLetterCode = (letterIndex + key) % 26
+        return alphabet[newLetterCode]
+    }
 }
 
 final class CaesarCipherEncryptor: XCTestCase {
@@ -31,5 +38,15 @@ final class CaesarCipherEncryptor: XCTestCase {
         
         XCTAssertEqual(sut.normalizeKey(28), 2, "Failed to normalize key, 2 expected but received")
         XCTAssertEqual(sut.normalizeKey(52), 0, "Failed to handle full rotations")
+    }
+    
+    func test_caesarCipher_shiftLetter() {
+        let sut = CaesarCipher()
+        let alphabet = Array("abcdefghijklmnopqrstuvwxyz")
+        
+        XCTAssertEqual(sut.shiftLetter("a", 2, alphabet), "c", "Failed to shift letter")
+        XCTAssertEqual(sut.shiftLetter("x", 2, alphabet), "z", "Failed to shift letter")
+        XCTAssertEqual(sut.shiftLetter("z", 2, alphabet), "b", "Failed to shift letter")
+        XCTAssertNil(sut.shiftLetter("1", 2, alphabet), "failed to return nil")
     }
 }
