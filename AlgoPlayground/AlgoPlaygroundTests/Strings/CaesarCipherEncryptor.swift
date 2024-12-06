@@ -59,30 +59,34 @@ final class CaesarCipherEncryptor: XCTestCase {
     
     func test_caesarCipher_returnsBasicString() {
         let sut = makeSUT()
-        let result = sut.encrypt("abc", 2)
+        let receivedResult = sut.encrypt("abc", 2)
+        let expectedResult = "cde"
         
-        XCTAssertEqual(result, "cde", "failed to encrypt basic string, expected cde received: \(result)")
+        XCTAssertEqual(receivedResult, expectedResult, "failed to encrypt basic string, expected result: \(expectedResult), but received: \(receivedResult) instead")
     }
     
     func test_caesarCipher_returnsWrappedAround() {
         let sut = makeSUT()
-        let result = sut.encrypt("xyz", 2)
+        let receivedResult = sut.encrypt("xyz", 2)
+        let expectedResult = "zab"
         
-        XCTAssertEqual(result, "zab", "failed to wrap around, expected zab received: \(result)")
+        XCTAssertEqual(receivedResult, expectedResult, "failed to wrap around, expected result: \(expectedResult) received: \(receivedResult) instead")
     }
     
     func test_caesarCipher_handleLargeKey() {
         let sut = makeSUT()
-        let result = sut.encrypt("abc", 28)
+        let receivedResult = sut.encrypt("abc", 28)
+        let expectedResult = "cde"
         
-        XCTAssertEqual(result, "cde", "failed to handle large key, expected cde received: \(result)")
+        XCTAssertEqual(expectedResult, expectedResult, "failed to handle large key, expected result: \(expectedResult), but received: \(receivedResult) instead")
     }
     
     func test_caesarCipher_handlesLargeString() {
         let sut = makeSUT()
-        let result = sut.encrypt("mvklahvjcnbwqvtutmfafkwiuagjkzmzwgf", 7)
+        let receivedResult = sut.encrypt("mvklahvjcnbwqvtutmfafkwiuagjkzmzwgf", 7)
+        let expectedResult = "tcrshocqjuidxcabatmhmrdpbhnqrgtgdnm"
         
-        XCTAssertEqual(result, "tcrshocqjuidxcabatmhmrdpbhnqrgtgdnm", "Failed to handle large input, expect tcrshocqjuidxcabatmhmrdpbhnqrgtgdnm, received: \(result)")
+        XCTAssertEqual(receivedResult, expectedResult, "Failed to handle large input, expected \(expectedResult), received  : \(receivedResult) instead")
     }
     
     // MARK: - Helpers
