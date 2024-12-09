@@ -46,17 +46,11 @@ class OptimalFreelancingEngine {
             let maxTime = min(deadline, lengthOfWeek)
             
             // For each job, the latest available day (within its deadline) is checked using a reverse loop (stride).
-            for time in stride(from: maxTime - 1, through: 0, by: -1) {
+            for time in stride(from: maxTime - 1, through: 0, by: -1) where !timeline[time] {
+                timeline[time] = true
+                profit += payment
                 
-                // If a day is available (false), it is marked as booked (true), and the payment is added to the profit.
-                // TODO: Fix Warning (for_where)
-                
-                if !timeline[time] {
-                    timeline[time] = true
-                    profit += payment
-                    
-                    break
-                }
+                break
             }
         }
         
