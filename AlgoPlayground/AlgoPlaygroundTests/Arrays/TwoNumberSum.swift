@@ -53,60 +53,9 @@ class TwoNumberSumEngine {
         
         return []
     }
-    
-    // Inefficient and almost wrong . not almost, this is wrong, is adding up the same number over and over.
-    // MARK: - O(n^2) time - O(1) Space
-    
-    func findNumbersWithTwoForLoops(array: [Int], target: Int) -> [Int] {
-        guard !array.isEmpty else { return [] }
-        
-        var result = [Int]()
-        
-        for first in array {
-            for second in array {
-                // TODO: Fix Warning (for_where)
-                if first + second == target {
-                    result.append(first)
-                    result.append(second)
-                    
-                    return result
-                }
-            }
-        }
-        
-        return []
-    }
  }
 
 final class TwoNumberSum: XCTestCase {
-    func test_twoNumberSum_fiundNumbersWithTwoForLoops() {
-        let sut = makeSUT()
-        
-        let array = [1, -9, -1, 11, 21]
-        let target = 10
-        
-        let result = sut.findNumbersWithTwoForLoops(array: array, target: target)
-        
-        XCTAssertEqual(result, [-1, 11])
-    }
-    
-    func test_twoNumberSum_FailFiundindNumbersWithTwoForLoops() {
-        let sut = makeSUT()
-        
-        let array = [1, -9, -21, 11, 21]
-        let target = 10
-        
-        let result = sut.findNumbersWithTwoForLoops(array: array, target: target)
-        
-        XCTAssertEqual(result, [], "There are no 2 numbers that sum up to 10, received: \(result) instead")
-    }
-    
-    func test_twoNumberSum_returnsOnEmptyArray() {
-        let sut = makeSUT()
-        
-        XCTAssertEqual(sut.findNumbersWithTwoForLoops(array: [], target: 0), [])
-    }
-    
     // MARK: Tests for `findTwoNumberSum` func
     
     func test_twoNumberSum_funcWithCollectionReturnsOnEmptyArray() {
