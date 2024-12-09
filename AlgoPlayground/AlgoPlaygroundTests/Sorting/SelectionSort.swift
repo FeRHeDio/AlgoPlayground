@@ -5,6 +5,13 @@
 //  Created by Fernando Putallaz on 09/12/2024.
 //
 
+/*
+ 
+    Write a function that takes in an array of integers and returns a sorted version of the array.
+    Use Selection Sort algorithm to sort the array.
+ 
+ */
+
 import XCTest
 
 class SelectionSortEngine {
