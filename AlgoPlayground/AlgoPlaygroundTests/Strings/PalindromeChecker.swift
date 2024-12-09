@@ -8,7 +8,8 @@
 /*
     ** Prompt **
  
-    Write a function that takes in a non-empty array string and that returns a boolean representing whether the string is a palindrome.
+    Write a function that takes in a non-empty array string and that returns a boolean representing
+    whether the string is a palindrome.
  
     A palindrome is defined as a string that's written the same forward and backward.
  
@@ -23,7 +24,6 @@ class PalindromeCheckerEngine {
         
         return cleaned == String(cleaned.reversed())
     }
-    
     
     // MARK: O(n^2) Time - O(n) Space
     func notThatEasyChecker(_ string: String) -> Bool {
