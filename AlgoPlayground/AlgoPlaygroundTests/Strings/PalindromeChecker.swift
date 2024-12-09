@@ -29,8 +29,8 @@ class PalindromeCheckerEngine {
     func notThatEasyChecker(_ string: String) -> Bool {
         var reversedString = ""
         
-        for i in string.indices.reversed() {
-            reversedString += String(string[i])
+        for idx in string.indices.reversed() {
+            reversedString += String(string[idx])
         }
         
         return reversedString == string
@@ -41,8 +41,8 @@ class PalindromeCheckerEngine {
         var reversedChars = [String]()
         let cleaned = string.lowercased().filter { $0.isLetter || $0.isNumber }
         
-        for i in cleaned.indices.reversed() {
-            reversedChars.append(String(cleaned[i]))
+        for idx in cleaned.indices.reversed() {
+            reversedChars.append(String(cleaned[idx]))
         }
         
         return cleaned == reversedChars.joined(separator: "")

@@ -62,11 +62,11 @@ class TwoNumberSumEngine {
         
         var result = [Int]()
         
-        for i in array {
-            for y in array {
-                if i + y == target {
-                    result.append(i)
-                    result.append(y)
+        for first in array {
+            for second in array {
+                if first + second == target {
+                    result.append(first)
+                    result.append(second)
                     
                     return result
                 }
