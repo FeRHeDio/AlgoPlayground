@@ -6,7 +6,6 @@
 //
 
 /*
- 
     ** Prompt **
  
     Write a function that takes a non-empty array of distinct integers and an integer representing
@@ -20,7 +19,6 @@
     Note that the target sum has to be obtained by summing two different integers in the array, 
     you can't add a single integer
     to itself in order to obtain the target sum.
-    
  */
  
 import XCTest
@@ -66,6 +64,7 @@ class TwoNumberSumEngine {
         
         for first in array {
             for second in array {
+                // TODO: Fix Warning (for_where)
                 if first + second == target {
                     result.append(first)
                     result.append(second)
@@ -108,7 +107,6 @@ final class TwoNumberSum: XCTestCase {
         XCTAssertEqual(sut.findNumbersWithTwoForLoops(array: [], target: 0), [])
     }
     
-    
     // MARK: Tests for `findTwoNumberSum` func
     
     func test_twoNumberSum_funcWithCollectionReturnsOnEmptyArray() {
@@ -139,12 +137,4 @@ final class TwoNumberSum: XCTestCase {
     private func makeSUT() -> TwoNumberSumEngine {
         TwoNumberSumEngine()
     }
-    
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }

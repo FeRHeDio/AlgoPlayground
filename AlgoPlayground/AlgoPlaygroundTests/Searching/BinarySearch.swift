@@ -24,7 +24,8 @@
     ** Iterative Apporach **
  
     We can implement 3 pointers.
-    One for the left side of the split (lidx) other for the right (ridx) and a third for the middle index of the array (midx).
+    One for the left side of the split (lidx) other for the right (ridx) and a third for the 
+    middle index of the array (midx).
  
     If we compare lidx to ridx we can say something like:
     
@@ -50,7 +51,8 @@
     ** Recursive approach **
  
     The main difference is not using a while creating a helper who is recalled.
-    The space complexity is O(Log(n)) due to the fact that each recursive call is added to the call stack using more memory.
+    The space complexity is O(Log(n)) due to the fact that each recursive call is added to the call 
+    stack using more memory.
     
  */
 
@@ -218,7 +220,7 @@ final class BinarySearch: XCTestCase {
     }
     
     func testIterativeBinarySearch() throws {
-        self.measure() {
+        self.measure {
             test_searchForNumber1_returnsIDX0()
             test_searchForNumber18_returnsIDX6()
             test_searchForNumber53_returnsIDX8()
@@ -228,7 +230,7 @@ final class BinarySearch: XCTestCase {
     }
     
     func testRecursiveBinarySearch() throws {
-        self.measure() {
+        self.measure {
             test_recuersiveSearchForNumber1_returnsIDX0()
             test_recuersiveSearchForNumber18_returnsIDX6()
             test_recuersiveSearchForNumber53_returnsIDX8()

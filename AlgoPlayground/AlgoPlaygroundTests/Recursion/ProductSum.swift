@@ -25,7 +25,6 @@
  
  */
 
-
 import XCTest
 
 class ProductSumEngine {
@@ -57,7 +56,6 @@ final class ProductSum: XCTestCase {
         
         XCTAssertEqual(result, 12)
     }
-    
     
     func test_productSumEngine_returns600() {
         let sut = makeSUT()

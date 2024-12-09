@@ -7,50 +7,12 @@
 
 /*
     ** Prompt **
- 
-    Write a function that takes an array of integers and returns a sorted version of that array using the Qucick Sort Algorithm
+    Write a function that takes an array of integers and returns a sorted version of that array using the 
+    Qucick Sort Algorithm
  
  */
 
 import XCTest
-
-
-// MARK: Pseudo
-
-/*
- // check if the startidx is greater or equal to the endidx
-     // if so return
- 
- // define the pivot
- // define lidx
- // define ridx
- 
- // while ridx >= lidx
-     // if lidx > pidx && ridx < pidx
-         // if so swap ridx and lidx
- 
-     // if lidx <= pidx
-         // lidx += 1
- 
-     // if ridx >= pidx
-         // ridx -= 1
- 
- // swap pidx for ridx
- 
- // then we need to define the smaller subarray.
- 
- // var leftSubarrayIsSmaller = ridx - 1 - startIdx < endIdx - (ridx + 1)
- 
- // if leftSubarrayIsSamller
-     // call itself again on the smaller subarray
-     // quickSortHelper(array, startIdx, ridx - 1)
-     // quickSortHelper(array, ridx + 1, endIdx
- 
-     // else
-         // quickSortHelper(array, ridx + 1, endIdx
-         // quickSortHelper(array, startIdx, ridx - 1)
-*/
-
 
 // MARK: - Worst case: O(n^2) Time - Best Case: O(N.Log(n))  -  O(Log(n)) - Space
 
@@ -115,7 +77,11 @@ final class QuickSort: XCTestCase {
         
         sut.quickSortHelper(array: &array, startIdx: 5, endIdx: array.endIndex - 1)
         
-        XCTAssertEqual(array, [2, 1, 5], "The array shouldn't change because the startIdx is greater that endIdx and received this: \(array)")
+        XCTAssertEqual(
+            array,
+            [2, 1, 5],
+            "The array shouldn't change because the startIdx is greater that endIdx and received this: \(array)"
+        )
     }
 
     // MARK: - Helpers
@@ -123,12 +89,4 @@ final class QuickSort: XCTestCase {
     private func makeSUT() -> QuickSortEngine {
         QuickSortEngine()
     }
-    
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            
-        }
-    }
-
 }

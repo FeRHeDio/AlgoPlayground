@@ -25,7 +25,7 @@ import XCTest
 
 class InsertionSortEngine {
     
-    //MARK: - O(n^2) Time - O(1) Space.
+    // MARK: - O(n^2) Time - O(1) Space.
     
     func insertionSort(_ array: inout [Int]) -> [Int] {
         for idx in array.indices {
