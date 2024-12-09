@@ -36,7 +36,6 @@ final class NodeDepths: XCTestCase {
         
         let result = sut.nodeDepths(root)
         
-               
         XCTAssertEqual(result, 16)
     }
     
@@ -46,7 +45,6 @@ final class NodeDepths: XCTestCase {
         
         let result = sut.nodeDepths(root)
         
-               
         XCTAssertEqual(result, 10)
     }
     

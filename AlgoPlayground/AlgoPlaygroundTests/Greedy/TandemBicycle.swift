@@ -11,7 +11,9 @@
     A Tandem Bicycle is a bicycle that's operated by two people: Person A and Person B.
     Both people pedal the bicycle, but the person that pedal faster dictates the speed of the bicycle.
     
-    So if a person A pedals at a speed of 5, and a person B pedals at a speed of 4, the tandem will move at a speed of 5.
+    So if a person A pedals at a speed of 5, and a person B pedals at a speed of 4, the tandem will move 
+    at a speed of 5.
+ 
     `speed = max(speedA, speedB)
  
     You're given two lists of positive integers: One that contains the speed of riders wearing red shirts and

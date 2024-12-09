@@ -9,16 +9,18 @@
     ** Prompt **
  
     You're given the head of a Singly Linked List whose nodes are in sorted order with respect to their values.
-    Write a function that returns a modified version of the Linked List that doesn't contain any nodes with duplicate values.
+    Write a function that returns a modified version of the Linked List that doesn't contain any nodes with 
+    duplicate values.
  
-    The linked list should be modified in place (i.e., you shouldn't create a brand new Linked List), and the modified should still have its
+    The linked list should be modified in place (i.e., you shouldn't create a brand new Linked List), and the 
+    modified should still have its
     nodes sorted with respect to their values.
  
-    Each `LinkedList` node has an integer `value` as well as a `next` node pointing to the next node in the list or `non/nil` if it's the tail
+    Each `LinkedList` node has an integer `value` as well as a `next` node pointing to the next node in the list or 
+    `non/nil` if it's the tail
     of the list.
  
  */
-
 
 import XCTest
 
@@ -58,14 +60,11 @@ class LinkedListRemoveDuplicateEngine {
     }
 }
 
-
 final class LinkedListRemoveDuplicate: XCTestCase {
     func test_linkedList_removeDuplicatesReturnCleanedList() {
         let linkedList = createLinkedList(from: [1, 3, 3, 5, 5, 9])
         let sut = makeSUT(head: linkedList)
-        
         let result = sut.removeDuplicates(linkedList)
-        
         let expectedValues = [1, 3, 5, 9]
         
         let resultValues = linkedListToArray(result)
@@ -76,9 +75,7 @@ final class LinkedListRemoveDuplicate: XCTestCase {
     func test_linkedList_removeDuplicatesDoesntModify() {
         let linkedList = createLinkedList(from: [1, 3, 5, 9])
         let sut = makeSUT(head: linkedList)
-        
         let result = sut.removeDuplicates(linkedList)
-        
         let expectedValues = [1, 3, 5, 9]
         
         let resultValues = linkedListToArray(result)
@@ -86,25 +83,24 @@ final class LinkedListRemoveDuplicate: XCTestCase {
         XCTAssertEqual(resultValues, expectedValues)
     }
     
-    
     // MARK: - Helpers
     
-    typealias LL = LinkedListRemoveDuplicateEngine.LinkedList
+    typealias LinkedList = LinkedListRemoveDuplicateEngine.LinkedList
     
-    private func makeSUT(head: LL) -> LL {
-        LL(value: head.value)
+    private func makeSUT(head: LinkedList) -> LinkedList {
+        LinkedList(value: head.value)
     }
     
-    private func createLinkedList(from values: [Int]) -> LL {
+    private func createLinkedList(from values: [Int]) -> LinkedList {
         guard !values.isEmpty else {
             fatalError("Cannot create a linked list with no values")
         }
         
-        let head = LL(value: values[0])
+        let head = LinkedList(value: values[0])
         var current = head
         
         for value in values.dropFirst() {
-            let newNode = LL(value: value)
+            let newNode = LinkedList(value: value)
             current.next = newNode
             current = newNode
         }
@@ -112,7 +108,7 @@ final class LinkedListRemoveDuplicate: XCTestCase {
         return head
     }
     
-    private func linkedListToArray(_ head: LL?) -> [Int] {
+    private func linkedListToArray(_ head: LinkedList?) -> [Int] {
         var array: [Int] = []
         var current = head
         

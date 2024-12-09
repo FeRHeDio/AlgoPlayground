@@ -8,12 +8,15 @@
 /*
     ** Prompt **
     
-    The Fibonacci Sequence is defined as follows: The first number of the sequence is 0, the second number is 1, and the nth number is the sum of the (n-1)th and (n-2)nth numbers.
+    The Fibonacci Sequence is defined as follows: The first number of the sequence is 0, 
+    the second number is 1, and the nth number is the sum of the (n-1)th and (n-2)nth numbers.
     
     Write a function that takes in an integer n and returns the Nth Fibonacci number.
  
-    Important Note: The Fibonacci sequence is often defined with its first two numbers as F0 = 0 and F1 = 1.
-    For the purpose of this question, the first Fibonacci number is F0; therefore, getNthFib(1) is equal to F0, getNthFib(2) is equal to F1, and so on.
+    Important Note: The Fibonacci sequence is often defined with its first two numbers 
+    as F0 = 0 and F1 = 1.
+    For the purpose of this question, the first Fibonacci number is F0; therefore, getNthFib(1) 
+    is equal to F0, getNthFib(2) is equal to F1, and so on.
  
     The subsequent number should be like this:
     
@@ -32,13 +35,13 @@ import XCTest
 
 // MARK: - Naive Approach - O(2^n) Time - O(n) Space
 class FibonacciEngine {
-    func getNthFib(n: Int) -> Int {
-        if n == 2 {
+    func getNthFib(number: Int) -> Int {
+        if number == 2 {
             return 1
-        } else if n == 1 {
+        } else if number == 1 {
             return 0
         } else {
-            return getNthFib(n: n - 1) + getNthFib(n: n - 2)
+            return getNthFib(number: number - 1) + getNthFib(number: number - 2)
         }
     }
 }
@@ -48,7 +51,7 @@ final class Fibonacci: XCTestCase {
     func test_fibonacci_takesTwoReturnsOne() {
         let sut = makeSUT()
         
-        let result = sut.getNthFib(n: 2)
+        let result = sut.getNthFib(number: 2)
         
         XCTAssertEqual(result, 1)
     }
@@ -56,7 +59,7 @@ final class Fibonacci: XCTestCase {
     func test_fibonacci_takesOneReturnsZero() {
         let sut = makeSUT()
         
-        let result = sut.getNthFib(n: 1)
+        let result = sut.getNthFib(number: 1)
         
         XCTAssertEqual(result, 0)
     }
@@ -64,43 +67,43 @@ final class Fibonacci: XCTestCase {
     func test_fibonacci_takes3Returns2() {
         let sut = makeSUT()
         
-        let result = sut.getNthFib(n: 3)
+        let result = sut.getNthFib(number: 3)
         
         XCTAssertEqual(result, 1)
     }
     
-    func test_fibonacci_takesNforPerformanceTest(n: Int) {
+    func test_fibonacci_takesNforPerformanceTest(number: Int) {
         let sut = makeSUT()
         
-        _ = sut.getNthFib(n: n)
+        _ = sut.getNthFib(number: number)
     }
 }
 
 // MARK: - Memoize Approach - O(n) Time  O(n) Space
 extension FibonacciEngine {
-    func getNthFibWithMemoize(n: Int) -> Int {
+    func getNthFibWithMemoize(number: Int) -> Int {
         var memo = [Int: Int]()
         
-        if n == 1 { return 0 }
-        if n == 2 { return 1 }
+        if number == 1 { return 0 }
+        if number == 2 { return 1 }
         
-        if let cached = memo[n] {
+        if let cached = memo[number] {
             return cached
         }
         
-        let result = getNthFibWithMemoize(n: n - 1) + getNthFibWithMemoize(n: n - 2)
+        let result = getNthFibWithMemoize(number: number - 1) + getNthFibWithMemoize(number: number - 2)
         
-        memo[n] = result
+        memo[number] = result
         return result
     }
 }
 
-//MARK: Tests for getNthFibWithMemoize approach
+// MARK: Tests for getNthFibWithMemoize approach
 extension Fibonacci {
     func test_fibonacciGetNthFibWithMemoize_takesTwoReturnsOne() {
         let sut = makeSUT()
         
-        let result = sut.getNthFibWithMemoize(n: 2)
+        let result = sut.getNthFibWithMemoize(number: 2)
         
         XCTAssertEqual(result, 1)
     }
@@ -108,7 +111,7 @@ extension Fibonacci {
     func test_fibonacciGetNthFibWithMemoize_takesOneReturnsZero() {
         let sut = makeSUT()
         
-        let result = sut.getNthFibWithMemoize(n: 1)
+        let result = sut.getNthFibWithMemoize(number: 1)
         
         XCTAssertEqual(result, 0)
     }
@@ -116,22 +119,21 @@ extension Fibonacci {
     func test_fibonacciGetNthFibWithMemoize_takes3Returns2() {
         let sut = makeSUT()
         
-        let result = sut.getNthFibWithMemoize(n: 3)
+        let result = sut.getNthFibWithMemoize(number: 3)
         
         XCTAssertEqual(result, 1)
     }
     
-    func test_fibonacciGetNthFibWithMemoize_takesNforPerformanceTest(n: Int) {
+    func test_fibonacciGetNthFibWithMemoize_takesNforPerformanceTest(number: Int) {
         let sut = makeSUT()
         
-        _ = sut.getNthFibWithMemoize(n: n)
+        _ = sut.getNthFibWithMemoize(number: number)
     }
-    
     
     func test_fibonacciGetNthFibWithMemoize_takes8Returns13() {
         let sut = makeSUT()
         
-        let result = sut.getNthFibWithMemoize(n: 8)
+        let result = sut.getNthFibWithMemoize(number: 8)
         
         XCTAssertEqual(result, 13)
     }
@@ -139,11 +141,11 @@ extension Fibonacci {
 
 // MARK: - Iterative Approach - O(n) Time  O(1) Space
 extension FibonacciEngine {
-    func getNthFibIterative(n: Int) -> Int {
+    func getNthFibIterative(number: Int) -> Int {
         var lastTwo = [0, 1]
         var counter = 3
         
-        while counter <= n {
+        while counter <= number {
             let nextFib = lastTwo[0] + lastTwo[1]
             lastTwo[0] = lastTwo[1]
             lastTwo[1] = nextFib
@@ -151,7 +153,7 @@ extension FibonacciEngine {
             counter += 1
         }
         
-        if n > 1 {
+        if number > 1 {
             return lastTwo[1]
         } else {
            return lastTwo[0]
@@ -159,13 +161,12 @@ extension FibonacciEngine {
     }
 }
 
-//MARK: Tests for getNthFibIterative approach
-
+// MARK: Tests for getNthFibIterative approach
 extension Fibonacci {
     func test_getNthFibIterative_takesTwoReturnsOne() {
         let sut = makeSUT()
         
-        let result = sut.getNthFibIterative(n: 2)
+        let result = sut.getNthFibIterative(number: 2)
         
         XCTAssertEqual(result, 1)
     }
@@ -173,7 +174,7 @@ extension Fibonacci {
     func test_getNthFibIterative_takesOneReturnsZero() {
         let sut = makeSUT()
         
-        let result = sut.getNthFibIterative(n: 1)
+        let result = sut.getNthFibIterative(number: 1)
         
         XCTAssertEqual(result, 0)
     }
@@ -181,7 +182,7 @@ extension Fibonacci {
     func test_getNthFibIterative_takes3Returns2() {
         let sut = makeSUT()
         
-        let result = sut.getNthFibIterative(n: 3)
+        let result = sut.getNthFibIterative(number: 3)
         
         XCTAssertEqual(result, 1)
     }
@@ -189,43 +190,41 @@ extension Fibonacci {
     func test_getNthFibIterative_takes8Returns13() {
         let sut = makeSUT()
         
-        let result = sut.getNthFibIterative(n: 8)
+        let result = sut.getNthFibIterative(number: 8)
         
         XCTAssertEqual(result, 13)
     }
     
-    func test_getNthFibIterative_takesNforPerformanceTest(n: Int) {
+    func test_getNthFibIterative_takesNforPerformanceTest(number: Int) {
         let sut = makeSUT()
         
-        _ = sut.getNthFibIterative(n: n)
+        _ = sut.getNthFibIterative(number: number)
     }
 }
 
-
-//MARK: - Helpers
+// MARK: - Helpers
 extension Fibonacci {
     private func makeSUT() -> FibonacciEngine {
         FibonacciEngine()
     }
     
-    //MARK: - Performance
-    
+    // MARK: - Performance
     // WARNING: Do not enter larger numbers for this algo which will take a long time to execute.
     func testFibonnacciNaiveApproach() throws {
         self.measure(metrics: [XCTClockMetric(), XCTCPUMetric(), XCTMemoryMetric()]) {
-            test_fibonacci_takesNforPerformanceTest(n: 16)
+            test_fibonacci_takesNforPerformanceTest(number: 16)
         }
     }
     
     func testFibonnacciMemoApproach() throws {
         self.measure(metrics: [XCTClockMetric(), XCTCPUMetric(), XCTMemoryMetric()]) {
-            test_fibonacciGetNthFibWithMemoize_takesNforPerformanceTest(n: 16)
+            test_fibonacciGetNthFibWithMemoize_takesNforPerformanceTest(number: 16)
         }
     }
     
     func testFibonnaccigetNthFibIterative() throws {
         self.measure(metrics: [XCTClockMetric(), XCTCPUMetric(), XCTMemoryMetric()]) {
-            test_getNthFibIterative_takesNforPerformanceTest(n: 16)
+            test_getNthFibIterative_takesNforPerformanceTest(number: 16)
         }
     }
 }
