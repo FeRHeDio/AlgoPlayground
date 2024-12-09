@@ -8,12 +8,15 @@
 /*
     ** Prompt **
     
-    The Fibonacci Sequence is defined as follows: The first number of the sequence is 0, the second number is 1, and the nth number is the sum of the (n-1)th and (n-2)nth numbers.
+    The Fibonacci Sequence is defined as follows: The first number of the sequence is 0, 
+    the second number is 1, and the nth number is the sum of the (n-1)th and (n-2)nth numbers.
     
     Write a function that takes in an integer n and returns the Nth Fibonacci number.
  
-    Important Note: The Fibonacci sequence is often defined with its first two numbers as F0 = 0 and F1 = 1.
-    For the purpose of this question, the first Fibonacci number is F0; therefore, getNthFib(1) is equal to F0, getNthFib(2) is equal to F1, and so on.
+    Important Note: The Fibonacci sequence is often defined with its first two numbers 
+    as F0 = 0 and F1 = 1.
+    For the purpose of this question, the first Fibonacci number is F0; therefore, getNthFib(1) 
+    is equal to F0, getNthFib(2) is equal to F1, and so on.
  
     The subsequent number should be like this:
     
@@ -95,7 +98,7 @@ extension FibonacciEngine {
     }
 }
 
-//MARK: Tests for getNthFibWithMemoize approach
+// MARK: Tests for getNthFibWithMemoize approach
 extension Fibonacci {
     func test_fibonacciGetNthFibWithMemoize_takesTwoReturnsOne() {
         let sut = makeSUT()
@@ -126,7 +129,6 @@ extension Fibonacci {
         
         _ = sut.getNthFibWithMemoize(number: number)
     }
-    
     
     func test_fibonacciGetNthFibWithMemoize_takes8Returns13() {
         let sut = makeSUT()
@@ -159,8 +161,7 @@ extension FibonacciEngine {
     }
 }
 
-//MARK: Tests for getNthFibIterative approach
-
+// MARK: Tests for getNthFibIterative approach
 extension Fibonacci {
     func test_getNthFibIterative_takesTwoReturnsOne() {
         let sut = makeSUT()
@@ -201,15 +202,13 @@ extension Fibonacci {
     }
 }
 
-
-//MARK: - Helpers
+// MARK: - Helpers
 extension Fibonacci {
     private func makeSUT() -> FibonacciEngine {
         FibonacciEngine()
     }
     
-    //MARK: - Performance
-    
+    // MARK: - Performance
     // WARNING: Do not enter larger numbers for this algo which will take a long time to execute.
     func testFibonnacciNaiveApproach() throws {
         self.measure(metrics: [XCTClockMetric(), XCTCPUMetric(), XCTMemoryMetric()]) {
