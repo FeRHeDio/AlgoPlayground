@@ -15,15 +15,30 @@
 import XCTest
 
 class SelectionSortEngine {
-    func sort() -> Bool {
-        true
+    func selectionSort(_ array: inout [Int]) {
+        var currentIdx = 0
+
+        while currentIdx < array.count - 1 {
+            var smallestIdx = currentIdx
+            
+            for idx in (currentIdx + 1)..<array.count {
+                if array[smallestIdx] > array[idx] {
+                    smallestIdx = idx
+                }
+            }
+            array.swapAt(currentIdx, smallestIdx)
+            currentIdx += 1
+        }
     }
 }
 
 final class SelectionSort: XCTestCase {
     func test_selectionSort_returnsTrue() {
         let sut = SelectionSortEngine()
+        var array = [3, 1, 6, 2, 9]
         
-        XCTAssertEqual(sut.sort(), true)
+        sut.selectionSort(&array)
+        
+        XCTAssertEqual(array, [1, 2, 3, 6, 9] )
     }
 }
