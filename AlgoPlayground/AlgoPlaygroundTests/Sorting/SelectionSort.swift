@@ -24,11 +24,10 @@ class SelectionSortEngine {
         while currentIdx < array.count - 1 {
             var smallestIdx = currentIdx
             
-            for idx in (currentIdx + 1)..<array.count {
-                if array[smallestIdx] > array[idx] {
-                    smallestIdx = idx
-                }
+            for idx in (currentIdx + 1)..<array.count where array[smallestIdx] > array[idx] {
+                smallestIdx = idx
             }
+            
             array.swapAt(currentIdx, smallestIdx)
             currentIdx += 1
         }
