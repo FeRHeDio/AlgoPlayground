@@ -37,7 +37,7 @@ class SelectionSortEngine {
 
 final class SelectionSort: XCTestCase {
     func test_selectionSort_returnsTrue() {
-        let sut = SelectionSortEngine()
+        let sut = makeSUT()
         var array = [3, 1, 6, 2, 9]
         
         sut.selectionSort(&array)
@@ -46,11 +46,17 @@ final class SelectionSort: XCTestCase {
     }
     
     func test_selectionSort_largeArray() {
-        let sut = SelectionSortEngine()
+        let sut = makeSUT()
         var array = [5, -2, 2, -8, 3, -10, -6, -1, 2, -2, 9, 1, 1]
         
         sut.selectionSort(&array)
         
         XCTAssertEqual(array, [-10, -8, -6, -2, -2, -1, 1, 1, 2, 2, 3, 5, 9])
+    }
+    
+    // MARK: - Helpers
+    
+    private func makeSUT() -> SelectionSortEngine {
+        SelectionSortEngine()
     }
 }
