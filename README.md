@@ -3,7 +3,7 @@
 
 As a way of practicing Algorithms and Datastructures using Swift I'll be populating this repo daily.
 
-### Current problems: `17`.. _and counting_
+### Current problems: `18`.. _and counting_
 
 #### Strings
 - Palindrome Checker
@@ -29,6 +29,7 @@ As a way of practicing Algorithms and Datastructures using Swift I'll be populat
 #### Sorting
 - Quick Sort
 - Insertion Sort
+- Selection Sort
 
 #### Linked Lists
 - Remove Duplicates
