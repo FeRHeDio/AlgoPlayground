@@ -22,6 +22,7 @@
  */
 
 import XCTest
+@testable import AlgoPlayground
 
 class ClosestValueEngine {
     func find() -> Bool {
@@ -34,5 +35,30 @@ final class FindClosestValue: XCTestCase {
         let sut = ClosestValueEngine()
         
         XCTAssertEqual(sut.find(), true)
+    }
+    
+    // MARK: Helpers.
+    
+    private func createSampleInput() -> BinaryTree {
+        
+        //         10
+        //       /    \
+        //      5      15
+        //     / \    /  \
+        //    2   5  13   22
+        //   /        \
+        //  1          14
+        
+        let node9 = BinaryTree(value: 14)
+        let node8 = BinaryTree(value: 1)
+        let node7 = BinaryTree(value: 22)
+        let node6 = BinaryTree(value: 13, right: node9)
+        let node5 = BinaryTree(value: 5)
+        let node4 = BinaryTree(value: 2, left: node8)
+        let node3 = BinaryTree(value: 15, left: node6, right: node7)
+        let node2 = BinaryTree(value: 5, left: node4, right: node5)
+        let tree = BinaryTree(value: 10, left: node2, right: node3)
+        
+        return tree
     }
 }
