@@ -44,4 +44,13 @@ final class SelectionSort: XCTestCase {
         
         XCTAssertEqual(array, [1, 2, 3, 6, 9] )
     }
+    
+    func test_selectionSort_largeArray() {
+        let sut = SelectionSortEngine()
+        var array = [5, -2, 2, -8, 3, -10, -6, -1, 2, -2, 9, 1, 1]
+        
+        sut.selectionSort(&array)
+        
+        XCTAssertEqual(array, [-10, -8, -6, -2, -2, -1, 1, 1, 2, 2, 3, 5, 9])
+    }
 }
