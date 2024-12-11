@@ -15,6 +15,9 @@
 import XCTest
 
 class SelectionSortEngine {
+    
+    // MARK: O(n^2) Time - O(1) Space
+    
     func selectionSort(_ array: inout [Int]) {
         var currentIdx = 0
 
