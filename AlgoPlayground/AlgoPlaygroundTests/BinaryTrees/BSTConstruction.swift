@@ -30,17 +30,46 @@
  */
 
 import XCTest
+@testable import AlgoPlayground
 
 class BSTConstructionEngine {
-    func construct() -> Bool {
-        true
-    }
+    
+   
+        
+//    func insert(_ number: Int) -> BinaryTree {
+//        
+//    }
 }
 
 final class BSTConstruction: XCTestCase {
-    func test_bstConstruct_returnsTrue() {
-        let sut = BSTConstructionEngine()
+    // The constructor must have 3 methods.
+        // Insert
+        // Search
+        // Delete
+    
+    func test_bstConstructInsert_succeed() {
+        // Given
+        let node1 = BinaryTree(value: 10)
+        let sut = makeSUT(node1)
         
-        XCTAssertEqual(sut.construct(), true)
+        // When
+        let receivedResult = sut.insert(5)
+        
+        // Then
+        
+        let expectedAddedNode = BinaryTree(value: 5)
+        let expectedResult = BinaryTree(value: 10, left: expectedAddedNode)
+        
+        XCTAssertEqual(
+            receivedResult.value,
+            expectedResult.left?.value,
+            "Expected \(expectedResult.left?.value ?? 0) received: \(receivedResult.left?.value ?? 0)"
+        )
+    }
+    
+    // MARK: - Helpers
+    
+    private func makeSUT(_ node: BinaryTree) -> BinaryTree {
+        BinaryTree(value: node.value)
     }
 }

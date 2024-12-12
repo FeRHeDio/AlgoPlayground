@@ -19,4 +19,8 @@ class BinaryTree {
         self.left = left
         self.right = right
     }
+    
+    func insert(_ value: Int) -> BinaryTree {
+        return self
+    }
 }
