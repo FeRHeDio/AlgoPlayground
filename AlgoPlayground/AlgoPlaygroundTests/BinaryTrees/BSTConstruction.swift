@@ -38,7 +38,7 @@ final class BSTConstruction: XCTestCase {
         // Search
         // Delete
     
-    func test_bstConstructInsert_succeed() {
+    func test_bstConstruct_InsertSucceed() {
         // Given
         let node1 = BinaryTree(value: 10)
         let sut = makeSUT(node1)
@@ -56,6 +56,9 @@ final class BSTConstruction: XCTestCase {
             expectedResult.left?.value,
             "Expected \(expectedResult.left?.value ?? 0) received: \(receivedResult.left?.value ?? 0)"
         )
+        
+        XCTAssertEqual(receivedResult.value, expectedResult.value)
+        XCTAssertEqual(receivedResult.right?.value, expectedResult.right?.value)
     }
     
     // MARK: - Helpers
