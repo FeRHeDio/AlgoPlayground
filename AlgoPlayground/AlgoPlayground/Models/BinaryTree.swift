@@ -47,4 +47,11 @@ class BinaryTree {
         
         return self
     }
+    
+    func search(_ node: BinaryTree) -> Bool {
+        guard self.value == node.value else { return false }
+        
+        return true
+    }
+    
 }
