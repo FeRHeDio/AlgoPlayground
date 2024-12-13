@@ -32,15 +32,6 @@
 import XCTest
 @testable import AlgoPlayground
 
-class BSTConstructionEngine {
-    
-   
-        
-//    func insert(_ number: Int) -> BinaryTree {
-//        
-//    }
-}
-
 final class BSTConstruction: XCTestCase {
     // The constructor must have 3 methods.
         // Insert
