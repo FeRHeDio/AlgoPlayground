@@ -85,7 +85,7 @@ final class BSTConstruction: XCTestCase {
     
     // MARK: - Contains Tests
     
-    func test_bstConstruct_containsReturnSuccess() {
+    func test_bstConstruct_containsNodeValueReturnSuccess() {
         // Given
         let rootNode = BinaryTree(value: 10)
         let sut = makeSUT(rootNode)
