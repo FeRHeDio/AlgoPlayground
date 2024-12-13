@@ -61,6 +61,28 @@ final class BSTConstruction: XCTestCase {
         XCTAssertEqual(receivedResult.right?.value, expectedResult.right?.value)
     }
     
+    func test_bstConstruct_insertGreaterGoesToRight() {
+        // Given
+        let node1 = BinaryTree(value: 10)
+        let sut = makeSUT(node1)
+        
+        // When
+        let receivedResult = sut.insert(15)
+        
+        // Then
+        let expectedAddedNode = BinaryTree(value: 15)
+        let expectedResult = BinaryTree(value: 10, right: expectedAddedNode)
+        
+        XCTAssertEqual(
+            receivedResult.right?.value,
+            expectedResult.right?.value,
+            "Expected \(expectedResult.right?.value ?? 0) received: \(receivedResult.right?.value ?? 0)"
+        )
+        
+        XCTAssertEqual(receivedResult.value, expectedResult.value)
+        XCTAssertEqual(receivedResult.left?.value, expectedResult.left?.value)
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(_ node: BinaryTree) -> BinaryTree {

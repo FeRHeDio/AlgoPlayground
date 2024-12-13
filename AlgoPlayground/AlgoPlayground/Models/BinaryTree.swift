@@ -31,7 +31,14 @@ class BinaryTree {
                     currentNode.left = BinaryTree(value: value)
                     break
                 }
-            } 
+            } else {
+                if let right = currentNode.right {
+                    currentNode = right
+                } else {
+                    currentNode.right = BinaryTree(value: value)
+                    break
+                }
+            }
         }
         
         return self
