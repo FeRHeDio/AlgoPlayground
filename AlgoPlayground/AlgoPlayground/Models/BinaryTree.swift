@@ -25,18 +25,18 @@ class BinaryTree {
         
         while true {
             if value < currentNode.value {
-                if currentNode.left == nil {
+                if let left = currentNode.left {
+                    currentNode = left
+                } else {
                     currentNode.left = BinaryTree(value: value)
                     break
-                } else if let left = currentNode.left {
-                    currentNode = left
                 }
             } else {
-                if currentNode.right == nil {
+                if let right = currentNode.right {
+                    currentNode = right
+                } else {
                     currentNode.right = BinaryTree(value: value)
                     break
-                } else if let right = currentNode.right {
-                    currentNode = right
                 }
             }
         }
