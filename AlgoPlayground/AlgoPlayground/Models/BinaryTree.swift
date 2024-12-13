@@ -21,6 +21,26 @@ class BinaryTree {
     }
     
     func insert(_ value: Int) -> BinaryTree {
+        var currentNode = self
+        
+        while true {
+            if value < currentNode.value {
+                if currentNode.left == nil {
+                    currentNode.left = BinaryTree(value: value)
+                    break
+                } else if let left = currentNode.left {
+                    currentNode = left
+                }
+            } else {
+                if currentNode.right == nil {
+                    currentNode.right = BinaryTree(value: value)
+                    break
+                } else if let right = currentNode.right {
+                    currentNode = right
+                }
+            }
+        }
+        
         return self
     }
 }

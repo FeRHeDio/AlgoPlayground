@@ -52,7 +52,7 @@ final class BSTConstruction: XCTestCase {
         let expectedResult = BinaryTree(value: 10, left: expectedAddedNode)
         
         XCTAssertEqual(
-            receivedResult.value,
+            receivedResult.left?.value,
             expectedResult.left?.value,
             "Expected \(expectedResult.left?.value ?? 0) received: \(receivedResult.left?.value ?? 0)"
         )
