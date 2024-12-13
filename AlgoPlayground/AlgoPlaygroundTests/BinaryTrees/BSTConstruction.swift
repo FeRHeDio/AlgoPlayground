@@ -38,7 +38,7 @@ final class BSTConstruction: XCTestCase {
         // Search
         // Delete
     
-    func test_bstConstruct_InsertSucceed() {
+    func test_bstConstruct_InsertLowerGoesToLeft() {
         // Given
         let node1 = BinaryTree(value: 10)
         let sut = makeSUT(node1)
