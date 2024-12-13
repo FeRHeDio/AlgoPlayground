@@ -20,6 +20,10 @@ class BinaryTree {
         self.right = right
     }
     
+    // MARK: - Complexity Analysis:
+        // Average: O(Log(n)) Time - O(1) Space
+        // Worst: O(n) Time - O(1) Space
+    
     func insert(_ value: Int) -> BinaryTree {
         var currentNode = self
         
