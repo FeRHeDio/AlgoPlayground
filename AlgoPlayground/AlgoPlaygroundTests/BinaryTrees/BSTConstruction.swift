@@ -115,13 +115,22 @@ final class BSTConstruction: XCTestCase {
         XCTAssertEqual(insertResultBST.search(15), true)
     }
     
-    func test_bstConstruct_searchForZero() {
+    func test_bstConstruct_searchForZeroShouldExist() {
         let rootNode = BinaryTree(value: 10)
         let sut = makeSUT(rootNode)
         
         let insertResultBST = sut.insert(0)
         
         XCTAssertEqual(insertResultBST.search(0), true)
+    }
+    
+    func test_bstConstruct_searchNegativeNumberShouldExist() {
+        let rootNode = BinaryTree(value: 10)
+        let sut = makeSUT(rootNode)
+        
+        let insertResultBST = sut.insert(-100)
+        
+        XCTAssertEqual(insertResultBST.search(-100), true)
     }
     
     // MARK: - Helpers
