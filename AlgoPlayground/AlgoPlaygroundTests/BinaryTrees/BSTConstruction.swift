@@ -98,15 +98,10 @@ final class BSTConstruction: XCTestCase {
     }
     
     func test_bstConstruct_containsLeftNodeValueReturnSuccess() {
-//        // Given
-//        let leftNode = BinaryTree(value: 3)
-//        let rootNode = BinaryTree(value: 10, left: leftNode)
-//        let sut = makeSUT(rootNode)
-//      
-        let bst = BinaryTree(value: 10)
-        // When
-        let insertResultBST = bst.insert(3)
-        // Then
+        let rootNode = BinaryTree(value: 10)
+        let sut = makeSUT(rootNode)
+        
+        let insertResultBST = sut.insert(3)
         
         XCTAssertEqual(insertResultBST.search(3), true)
     }
