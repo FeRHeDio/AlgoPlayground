@@ -106,6 +106,15 @@ final class BSTConstruction: XCTestCase {
         XCTAssertEqual(insertResultBST.search(3), true)
     }
     
+    func test_bstConstruct_containsRightNodeValueReturnSuccess() {
+        let rootNode = BinaryTree(value: 10)
+        let sut = makeSUT(rootNode)
+        
+        let insertResultBST = sut.insert(15)
+        
+        XCTAssertEqual(insertResultBST.search(15), true)
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(_ node: BinaryTree) -> BinaryTree {
