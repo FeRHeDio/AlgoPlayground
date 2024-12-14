@@ -58,8 +58,6 @@ class BinaryTree {
                 return true
             } else if value < node.value {
                 currentNode = node.left
-            } else if value > node.value {
-                currentNode = node.right
             }
         }
         return false
