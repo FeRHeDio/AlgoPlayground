@@ -48,12 +48,20 @@ class BinaryTree {
         return self
     }
     
-    func search(_ value: Int) -> Bool {
-        if self.value == value {
-            return true
-        }
+    func search(_ value: Int?) -> Bool {
+        guard let value else { return false }
         
+        var currentNode: BinaryTree? = self
+        
+        while let node = currentNode {
+            if value == node.value {
+                return true
+            } else if value < node.value {
+                currentNode = node.left
+            } else if value > node.value {
+                currentNode = node.right
+            }
+        }
         return false
     }
-    
 }
